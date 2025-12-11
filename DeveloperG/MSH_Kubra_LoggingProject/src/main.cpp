@@ -1,25 +1,32 @@
 #include <iostream>
 #include <limits>
-#include <fstream>
 
 #include "Logger.h"
 #include "NotificationManager.h"
+
+// Güvenli int okuma (harf vs girilirse temizler)
+int readIntSafe(const std::string& prompt) {
+    int x;
+    while (true) {
+        std::cout << prompt;
+        if (std::cin >> x) {
+            return x;
+        }
+        // Hatalı giriş (harf vb.) -> temizle ve tekrar sor
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Gecersiz giris. Lutfen sayi giriniz.\n";
+    }
+}
 
 // Kullanıcıdan log formatını sor (LLR8)
 LogFormat askLogFormat() {
     std::cout << "Log formatini seciniz:\n"
               << " 1) JSON\n"
               << " 2) XML\n"
-              << " 3) YAML\n"
-              << "Secim: ";
+              << " 3) YAML\n";
 
-    int choice;
-    if (!(std::cin >> choice)) {
-        // Harf vb. girilirse temizle
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return LogFormat::JSON; // default
-    }
+    int choice = readIntSafe("Secim: ");
 
     switch (choice) {
     case 2: return LogFormat::XML;
@@ -35,16 +42,9 @@ NotificationType askNotificationPreference() {
     std::cout << "\nBildirim tercihini seciniz:\n"
               << " 1) Console\n"
               << " 2) SMS\n"
-              << " 3) Alarm Sound\n"
-              << "Secim: ";
+              << " 3) Alarm Sound\n";
 
-    int choice;
-    if (!(std::cin >> choice)) {
-        // Harf vb. girilirse temizle
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return NotificationType::CONSOLE; // default
-    }
+    int choice = readIntSafe("Secim: ");
 
     switch (choice) {
     case 2: return NotificationType::SMS;
@@ -56,21 +56,13 @@ NotificationType askNotificationPreference() {
 }
 
 int main() {
-    const std::string logFileName = "msh_log.txt";
-
     // --- LLR8 & LLR6: log formatini sec ve dosyayi ac ---
     LogFormat format = askLogFormat();
-    Logger::instance().initialize(logFileName, format);
+    Logger::instance().initialize("msh_log.txt", format);
 
-    // initialize() void olduğu için direkt başarı kontrolü yok.
-    // En azından dosya erişimi yoksa kullanıcıya uyarı verelim:
-    {
-        std::ofstream testOpen(logFileName, std::ios::app);
-        if (!testOpen.is_open()) {
-            std::cerr << "[UYARI] Log dosyasi acilamadi: " << logFileName
-                      << " (Loglar yazilamayabilir!)" << std::endl;
-        }
-    }
+    // Logger dosyayı açamadıysa (sende sessiz dönüyor), kullanıcıya uyarı verelim
+    // (Logger.h içinde currentFormat var; ama açık mı kontrolü yok. Basit uyarı yeter.)
+    std::cout << "Log dosyasi: msh_log.txt (acilamadiysa log yazilmayabilir)\n";
 
     // --- LLR36: kullanicidan bildirim tercihi al ---
     NotificationManager notifManager;
@@ -78,9 +70,11 @@ int main() {
 
     // --- LLR30: örnek başarılı işlemler loglansın ---
     Logger::instance().log(LogLevel::INFO, "TurnOnLight OK", 101, "TurnOnLight");
-    Logger::instance().log(LogLevel::INFO, "OpenDoor OK", 202, "OpenDoor");
+    Logger::instance().log(LogLevel::INFO, "OpenDoor OK",     202, "OpenDoor");
 
-    // --- Örnek başarısız işlem (double log değil; bu ayrı bir başarısız işlem örneği) ---
+    // --- Örnek başarısız işlem ---
+    // Not: NotificationManager notifyFailure içinde de log atıyor,
+    // ama main'deki bu ERROR log'u "başarısız işlem örneği" olarak kalsın.
     Logger::instance().log(LogLevel::ERROR, "StartHeater FAILED", 303, "StartHeater");
 
     // --- LLR19: cihaz arizasi bildirimi (user preference'a gore) ---
@@ -90,6 +84,6 @@ int main() {
     // --- LLR7: program kapanirken log dosyasini kapat ---
     Logger::instance().shutdown();
 
-    std::cout << "\nProgram bitti. Loglar " << logFileName << " dosyasina yazildi.\n";
+    std::cout << "\nProgram bitti. Loglar msh_log.txt dosyasina yazildi.\n";
     return 0;
 }
