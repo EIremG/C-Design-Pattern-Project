@@ -1,31 +1,25 @@
-#include "Device.h"
-#include <iostream>
-#include "Logger.h"
+#include "../include/Device.h"
 
-// ID generator başlangıcı
+// Static member initialization (LLR37)
 int Device::nextID = 1000;
 
-Device::Device(const std::string& name, DeviceType type, bool isCritical)
-    : name(name), deviceType(type), isCriticalDeviceFlag(isCritical), powerState(false)
-{
-    id = nextID++; // otomatik ID ataması
-    Logger::getInstance().log(LogLevel::INFO, "Device created: " + name + " (ID: " + std::to_string(id) + ")");
+// Protected constructor (LLR9)
+Device::Device(const std::string& name, DeviceType type, bool critical)
+    : name(name), deviceType(type), isCritical(critical), powerState(false) {
+    id = nextID++; // LLR37 - Auto-increment ID
+    std::cout << "[DEVICE CREATED] " << name << " (ID: " << id << ")" << std::endl;
 }
 
-void Device::powerOn() {
-    powerState = true;
-    Logger::getInstance().log(LogLevel::INFO, "Device powered ON: " + name + " (ID: " + std::to_string(id) + ")");
-    std::cout << "Device [" << name << "] (ID: " << id << ") is now ON.\n";
-}
-
-bool Device::powerOff() {
-    if (isCriticalDeviceFlag) {
-        std::cout << "ERROR: Cannot power off critical device [" << name << "]!\n";
-        Logger::getInstance().log(LogLevel::WARNING, "Attempted to power off critical device: " + name);
-        return false;
+// Helper function
+std::string Device::deviceTypeToString(DeviceType type) {
+    switch(type) {
+        case DeviceType::LIGHT: return "Light";
+        case DeviceType::CAMERA: return "Camera";
+        case DeviceType::TV: return "TV";
+        case DeviceType::SMOKE_DETECTOR: return "Smoke Detector";
+        case DeviceType::GAS_DETECTOR: return "Gas Detector";
+        case DeviceType::ALARM: return "Alarm";
+        case DeviceType::MUSIC_SYSTEM: return "Music System";
+        default: return "Unknown";
     }
-    powerState = false;
-    Logger::getInstance().log(LogLevel::INFO, "Device powered OFF: " + name + " (ID: " + std::to_string(id) + ")");
-    std::cout << "Device [" << name << "] (ID: " << id << ") is now OFF.\n";
-    return true;
 }
