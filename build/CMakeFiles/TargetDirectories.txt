@@ -1,3 +1,0 @@
-C:/Users/90505/Desktop/DesignPattern_DeviceFramework/build/CMakeFiles/DesignPattern_DeviceFramework.dir
-C:/Users/90505/Desktop/DesignPattern_DeviceFramework/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/90505/Desktop/DesignPattern_DeviceFramework/build/CMakeFiles/ZERO_CHECK.dir
