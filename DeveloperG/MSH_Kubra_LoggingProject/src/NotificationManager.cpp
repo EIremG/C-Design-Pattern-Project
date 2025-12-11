@@ -12,8 +12,9 @@ NotificationType NotificationManager::getPreference() const {
 }
 
 void NotificationManager::notifyFailure(int deviceId, const std::string& reason) const {
-    std::string channel;     // console / sms / alarm
-    std::string outputText;  // ekrana basılacak mesaj
+    std::string channel;
+    std::string outputText;
+    LogLevel logLevel = LogLevel::ERROR;
 
     switch (m_type) {
     case NotificationType::CONSOLE:
@@ -37,18 +38,14 @@ void NotificationManager::notifyFailure(int deviceId, const std::string& reason)
     default:
         channel = "unknown";
         outputText = "[NOTIFY] Unknown notification type!";
-        Logger::instance().log(LogLevel::WARNING,
-                               "Unknown notification type while notifying failure",
-                               deviceId,
-                               "FAILURE");
-        std::cout << outputText << std::endl;
-        return;
+        logLevel = LogLevel::WARNING;
+        break;
     }
 
-    // Ortak kısım (TEK YER)
+    // Ortak çıktı
     std::cout << outputText << std::endl;
 
-    Logger::instance().log(LogLevel::ERROR,
+    Logger::instance().log(logLevel,
                            "Device failure (" + channel + "): " + reason,
                            deviceId,
                            "FAILURE");
