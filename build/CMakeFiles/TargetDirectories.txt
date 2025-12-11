@@ -1,2 +1,3 @@
+C:/Users/90505/OneDrive/Masaüstü/SmartHome/build/CMakeFiles/SmartHome.dir
 C:/Users/90505/OneDrive/Masaüstü/SmartHome/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/90505/OneDrive/Masaüstü/SmartHome/build/CMakeFiles/ZERO_CHECK.dir

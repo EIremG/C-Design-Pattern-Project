@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\Device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\Detector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\SmokeDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\GasDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\DetectorFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\TV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\MusicSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\Alarm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\DeviceFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\DeviceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\CriticalDeviceGuard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\src\Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\90505\OneDrive\Masaüstü\SmartHome\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{EB9FDB26-FC54-3F12-B04E-30EF1E70DD84}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -8,12 +8,17 @@
 				{
 					"build" : ".",
 					"jsonFile" : "directory-.-Debug-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
 					"projectIndex" : 0,
 					"source" : ".",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -25,11 +30,12 @@
 					[
 						0
 					],
-					"name" : "Project",
+					"name" : "SmartHome_DeviceFramework",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -38,8 +44,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-Debug-0afa9dd508ee8e0b544f.json",
+					"jsonFile" : "target-ALL_BUILD-Debug-2e7349e8b65bf7efb7d6.json",
 					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SmartHome::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SmartHome-Debug-1f201e8dbb76deb760ab.json",
+					"name" : "SmartHome",
 					"projectIndex" : 0
 				},
 				{
@@ -58,12 +71,17 @@
 				{
 					"build" : ".",
 					"jsonFile" : "directory-.-Release-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
 					"projectIndex" : 0,
 					"source" : ".",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -75,11 +93,12 @@
 					[
 						0
 					],
-					"name" : "Project",
+					"name" : "SmartHome_DeviceFramework",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -88,8 +107,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-Release-0afa9dd508ee8e0b544f.json",
+					"jsonFile" : "target-ALL_BUILD-Release-2e7349e8b65bf7efb7d6.json",
 					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SmartHome::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SmartHome-Release-4baa59fb8174f25a0624.json",
+					"name" : "SmartHome",
 					"projectIndex" : 0
 				},
 				{
@@ -108,12 +134,17 @@
 				{
 					"build" : ".",
 					"jsonFile" : "directory-.-MinSizeRel-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
 					"projectIndex" : 0,
 					"source" : ".",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -125,11 +156,12 @@
 					[
 						0
 					],
-					"name" : "Project",
+					"name" : "SmartHome_DeviceFramework",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -138,8 +170,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-MinSizeRel-0afa9dd508ee8e0b544f.json",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-2e7349e8b65bf7efb7d6.json",
 					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SmartHome::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SmartHome-MinSizeRel-721d75c16d7a11a95c5c.json",
+					"name" : "SmartHome",
 					"projectIndex" : 0
 				},
 				{
@@ -158,12 +197,17 @@
 				{
 					"build" : ".",
 					"jsonFile" : "directory-.-RelWithDebInfo-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
 					"projectIndex" : 0,
 					"source" : ".",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -175,11 +219,12 @@
 					[
 						0
 					],
-					"name" : "Project",
+					"name" : "SmartHome_DeviceFramework",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -188,8 +233,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-0afa9dd508ee8e0b544f.json",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-2e7349e8b65bf7efb7d6.json",
 					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SmartHome::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SmartHome-RelWithDebInfo-9a08fc7f0efd85c3c8f4.json",
+					"name" : "SmartHome",
 					"projectIndex" : 0
 				},
 				{

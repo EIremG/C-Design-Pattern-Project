@@ -699,7 +699,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Project"
+			"value" : "SmartHome_DeviceFramework"
 		},
 		{
 			"name" : "CMAKE_PROJECT_SPDX_LICENSE",
@@ -1079,6 +1079,42 @@
 		},
 		{
 			"name" : "Project_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome"
+		},
+		{
+			"name" : "SmartHome_DeviceFramework_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build"
+		},
+		{
+			"name" : "SmartHome_DeviceFramework_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "SmartHome_DeviceFramework_SOURCE_DIR",
 			"properties" : 
 			[
 				{
