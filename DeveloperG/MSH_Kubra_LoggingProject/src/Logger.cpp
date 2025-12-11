@@ -43,16 +43,12 @@ void Logger::log(LogLevel level,
                  int deviceId,
                  const std::string& actionType) {
     if (!m_isOpen) {
-        // initialize çağrılmamış olabilir (kasıtlı olarak sessiz geçilebilir)
+        // initialize çağrılmamış olabilir
         return;
     }
 
-    const std::time_t now = std::time(nullptr);
     const std::string line = formatLogLine(level, message, deviceId, actionType);
-
     m_file << line << std::endl;
-
-    // İstersen güvenli olsun diye flush (hocaya “log kaybolmasın” diye güzel görünür)
     m_file.flush();
 }
 
@@ -80,10 +76,10 @@ std::string Logger::formatTime(std::time_t t) const {
 
 std::string Logger::levelToString(LogLevel level) const {
     switch (level) {
-    case LogLevel::INFO:  return "INFO";
-    case LogLevel::WARN:  return "WARN";
-    case LogLevel::ERROR: return "ERROR";
-    default:              return "UNKNOWN";
+    case LogLevel::INFO:     return "INFO";
+    case LogLevel::WARNING:  return "WARNING";
+    case LogLevel::ERROR:    return "ERROR";
+    default:                return "UNKNOWN";
     }
 }
 
@@ -94,7 +90,6 @@ std::string Logger::formatLogLine(LogLevel level,
     const std::time_t now = std::time(nullptr);
     const std::string ts = formatTime(now);
 
-    // JSON / XML / YAML formatları (LLR8)
     switch (m_format) {
     case LogFormat::JSON: {
         std::ostringstream oss;
@@ -128,7 +123,7 @@ std::string Logger::formatLogLine(LogLevel level,
         return oss.str();
     }
     default: {
-        // Beklenmeyen durumda JSON’a dön
+        // Güvenli fallback
         std::ostringstream oss;
         oss << "{"
             << "\"timestamp\":\"" << ts << "\","
