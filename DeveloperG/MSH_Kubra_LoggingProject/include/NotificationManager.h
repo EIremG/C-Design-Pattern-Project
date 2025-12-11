@@ -15,6 +15,7 @@ public:
     void notifyFailure(int deviceId, const std::string& reason) const;
 
 private:
+    // Varsayılan bildirim türü
     NotificationType m_type{NotificationType::CONSOLE};
 };
 
