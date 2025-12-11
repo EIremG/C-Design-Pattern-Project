@@ -1,0 +1,10 @@
+^C:\USERS\90505\ONEDRIVE\MASAÜSTÜ\SMARTHOME\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/90505/OneDrive/Masaüstü/SmartHome -BC:/Users/90505/OneDrive/Masaüstü/SmartHome/build --check-stamp-file C:/Users/90505/OneDrive/Masaüstü/SmartHome/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
