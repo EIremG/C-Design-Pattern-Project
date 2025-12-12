@@ -1,138 +1,152 @@
+// Logger.cpp
+// Developer G - Kübra Akpınar
+// LLR6, LLR7, LLR30: Logger implementation
+
 #include "Logger.h"
-
-#include <iomanip>
-#include <sstream>
+#include "LogFormatter.h"
 #include <iostream>
+#include <ctime>
+#include <sstream>
 
-// --- Singleton erişimi ---
-Logger& Logger::instance() {
-    static Logger inst;
-    return inst;
+// Static member initialization
+Logger* Logger::instance = NULL;
+
+// Private constructor (Singleton)
+Logger::Logger() : formatter(NULL), isInitialized(false) {
 }
 
-// --- ctor/dtor ---
-Logger::Logger() = default;
+// Singleton getInstance
+Logger* Logger::getInstance() {
+    if (instance == NULL) {
+        instance = new Logger();
+    }
+    return instance;
+}
 
+// LLR6: Log dosyası başlatma
+bool Logger::initialize(const std::string& filename, LogFormatter* fmt) {
+    if (isInitialized) {
+        std::cerr << "[Logger] Already initialized!" << std::endl;
+        return false;
+    }
+    
+    if (fmt == NULL) {
+        std::cerr << "[Logger] Error: LogFormatter is NULL!" << std::endl;
+        return false;
+    }
+    
+    this->filename = filename;
+    this->formatter = fmt;
+    
+    // Dosyayı aç
+    logFile.open(filename.c_str(), std::ios::out | std::ios::trunc);
+    
+    if (!logFile.is_open()) {
+        std::cerr << "[Logger] Error: Could not open log file: " 
+                  << filename << std::endl;
+        return false;
+    }
+    
+    isInitialized = true;
+    
+    // Başlangıç mesajı
+    std::string startMsg = "=== MSH Logging System Started ===\n";
+    startMsg += "Format: " + formatter->getFormatType() + "\n";
+    startMsg += "Timestamp: " + getCurrentTimestamp() + "\n";
+    startMsg += "===================================\n";
+    
+    logFile << startMsg;
+    logFile.flush();
+    
+    std::cout << "[Logger] Initialized successfully with " 
+              << formatter->getFormatType() 
+              << " format" << std::endl;
+    
+    return true;
+}
+
+// Genel log fonksiyonu
+void Logger::log(const std::string& message) {
+    if (!isInitialized) {
+        std::cerr << "[Logger] Not initialized!" << std::endl;
+        return;
+    }
+    
+    logFile << message << std::endl;
+    logFile.flush();
+}
+
+// LLR30: Her işlem loglanmalı (timestamp, action, deviceId)
+void Logger::logAction(const std::string& timestamp,
+                      const std::string& action,
+                      int deviceId) {
+    if (!isInitialized) {
+        std::cerr << "[Logger] Not initialized!" << std::endl;
+        return;
+    }
+    
+    if (formatter == NULL) {
+        std::cerr << "[Logger] Formatter is NULL!" << std::endl;
+        return;
+    }
+    
+    // Formatter ile mesajı formatla
+    std::string formattedMsg = formatter->format(timestamp, action, deviceId);
+    
+    // Log dosyasına yaz
+    logFile << formattedMsg << std::endl;
+    logFile.flush();
+    
+    // Debug: konsola da yazdır
+    std::cout << "[Logger] Logged: " << action 
+              << " (DeviceID: " << deviceId << ")" << std::endl;
+}
+
+// LLR7: Kapanışta log dosyası kapatılır
+void Logger::close() {
+    if (!isInitialized) {
+        return;
+    }
+    
+    // Kapanış mesajı
+    std::string endMsg = "\n=== MSH Logging System Closed ===\n";
+    endMsg += "Timestamp: " + getCurrentTimestamp() + "\n";
+    endMsg += "==================================\n";
+    
+    logFile << endMsg;
+    logFile.flush();
+    logFile.close();
+    
+    std::cout << "[Logger] Log file closed: " << filename << std::endl;
+    
+    isInitialized = false;
+}
+
+// Logger başlatılmış mı kontrolü
+bool Logger::isReady() const {
+    return isInitialized;
+}
+
+// Timestamp oluşturma
+std::string Logger::getCurrentTimestamp() const {
+    time_t now = time(NULL);
+    char buffer[80];
+    struct tm* timeinfo = localtime(&now);
+    
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeinfo);
+    
+    return std::string(buffer);
+}
+
+// Destructor
 Logger::~Logger() {
-    // Program kapanırken unutulsa bile dosyayı kapat
-    shutdown();
-}
-
-// --- LLR6: initialize ---
-void Logger::initialize(const std::string& filename, LogFormat format) {
-    // Daha önce açıksa kapat
-    if (m_isOpen) {
-        shutdown();
+    if (isInitialized) {
+        close();
     }
-
-    m_format = format;
-
-    m_file.open(filename, std::ios::out | std::ios::app);
-    if (!m_file.is_open()) {
-        m_isOpen = false;
-        std::cerr << "[LOGGER] Failed to open log file: " << filename << std::endl;
-        return;
-    }
-
-    m_isOpen = true;
-}
-
-// --- LLR30: log ---
-void Logger::log(LogLevel level,
-                 const std::string& message,
-                 int deviceId,
-                 const std::string& actionType) {
-    if (!m_isOpen) {
-        // initialize çağrılmamış olabilir
-        return;
-    }
-
-    const std::string line = formatLogLine(level, message, deviceId, actionType);
-    m_file << line << std::endl;
-    m_file.flush();
-}
-
-// --- LLR7: shutdown ---
-void Logger::shutdown() {
-    if (m_isOpen) {
-        m_file.close();
-        m_isOpen = false;
-    }
-}
-
-// --- helpers ---
-std::string Logger::formatTime(std::time_t t) const {
-    std::tm tmBuf{};
-#if defined(_WIN32)
-    localtime_s(&tmBuf, &t);
-#else
-    localtime_r(&t, &tmBuf);
-#endif
-
-    std::ostringstream oss;
-    oss << std::put_time(&tmBuf, "%Y-%m-%d %H:%M:%S");
-    return oss.str();
-}
-
-std::string Logger::levelToString(LogLevel level) const {
-    switch (level) {
-    case LogLevel::INFO:     return "INFO";
-    case LogLevel::WARNING:  return "WARNING";
-    case LogLevel::ERROR:    return "ERROR";
-    default:                return "UNKNOWN";
-    }
-}
-
-std::string Logger::formatLogLine(LogLevel level,
-                                 const std::string& message,
-                                 int deviceId,
-                                 const std::string& actionType) const {
-    const std::time_t now = std::time(nullptr);
-    const std::string ts = formatTime(now);
-
-    switch (m_format) {
-    case LogFormat::JSON: {
-        std::ostringstream oss;
-        oss << "{"
-            << "\"timestamp\":\"" << ts << "\","
-            << "\"level\":\"" << levelToString(level) << "\","
-            << "\"message\":\"" << message << "\","
-            << "\"deviceId\":" << deviceId << ","
-            << "\"actionType\":\"" << actionType << "\""
-            << "}";
-        return oss.str();
-    }
-    case LogFormat::XML: {
-        std::ostringstream oss;
-        oss << "<log>"
-            << "<timestamp>" << ts << "</timestamp>"
-            << "<level>" << levelToString(level) << "</level>"
-            << "<message>" << message << "</message>"
-            << "<deviceId>" << deviceId << "</deviceId>"
-            << "<actionType>" << actionType << "</actionType>"
-            << "</log>";
-        return oss.str();
-    }
-    case LogFormat::YAML: {
-        std::ostringstream oss;
-        oss << "timestamp: " << ts << "\n"
-            << "level: " << levelToString(level) << "\n"
-            << "message: " << message << "\n"
-            << "deviceId: " << deviceId << "\n"
-            << "actionType: " << actionType;
-        return oss.str();
-    }
-    default: {
-        // Güvenli fallback
-        std::ostringstream oss;
-        oss << "{"
-            << "\"timestamp\":\"" << ts << "\","
-            << "\"level\":\"" << levelToString(level) << "\","
-            << "\"message\":\"" << message << "\","
-            << "\"deviceId\":" << deviceId << ","
-            << "\"actionType\":\"" << actionType << "\""
-            << "}";
-        return oss.str();
-    }
+    
+    // Formatter'ı temizle (factory'den geldiği için)
+    if (formatter != NULL) {
+        delete formatter;
+        formatter = NULL;
     }
 }

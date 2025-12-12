@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\kmfm2\OneDrive\Masaüstü\C-Design-Pattern-Project\DeveloperG\MSH_Kubra_LoggingProject\build\CMakeFiles\b3798c125910d6727c9f8fd75e682dd7\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D3953874-144B-333F-8916-B9F9CEA72B0D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

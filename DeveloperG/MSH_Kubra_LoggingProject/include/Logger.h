@@ -1,54 +1,89 @@
+// Logger.h
+// Developer G - Kübra Akpınar
+// LLR6, LLR7, LLR30: Log dosyası yönetimi ve işlem loglama
+// Pattern: Singleton - Tek bir Logger instance garantisi
+
 #ifndef LOGGER_H
 #define LOGGER_H
 
 #include <string>
 #include <fstream>
-#include <ctime>
-#include "Types.h"
 
-// Logging altyapısını sağlayan Singleton Logger sınıfı
+// Forward declaration - LogFormatter bağımlılığı
+class LogFormatter;
+
+/**
+ * @class Logger
+ * @brief Singleton pattern ile log yönetimi sağlar
+ * 
+ * LLR6: Sistem başlatıldığında log dosyası oluşturulur
+ * LLR7: Kapanışta log dosyası düzgün kapatılır
+ * LLR30: Her başarılı işlem loglanır (timestamp, işlem, device id)
+ */
 class Logger {
-public:
-    // Tek örneğe erişim
-    static Logger& instance();
-
-    // LLR6: Log sistemini başlatır ve kullanılacak formatı belirler
-    // Örnek: Logger::instance().initialize("msh_log.txt", LogFormat::JSON);
-    void initialize(const std::string& filename, LogFormat format);
-
-    // LLR30: Her işlem için log satırı yazar
-    // deviceId ve actionType bilinmiyorsa sırasıyla -1 ve "" kullanılabilir
-    void log(LogLevel level,
-             const std::string& message,
-             int deviceId = -1,
-             const std::string& actionType = "");
-
-    // LLR7: Program kapanırken log dosyasını düzgün şekilde kapatır
-    void shutdown();
-
-    // Geçerli log formatını döndürür
-    LogFormat currentFormat() const { return m_format; }
-
 private:
+    static Logger* instance;           // Singleton instance
+    LogFormatter* formatter;           // Kullanılan format stratejisi
+    std::ofstream logFile;            // Log dosyası stream
+    std::string filename;             // Log dosya adı
+    bool isInitialized;               // Başlatılma durumu
+    
+    // Private constructor - Singleton için
     Logger();
+    
+    // Copy constructor ve assignment operator'ü engelle
+    Logger(const Logger&);
+    Logger& operator=(const Logger&);
+    
+    // Timestamp oluşturma yardımcı fonksiyonu
+    std::string getCurrentTimestamp() const;
+    
+public:
+    /**
+     * @brief Singleton instance'ı döndürür
+     * @return Logger* Tek Logger instance
+     */
+    static Logger* getInstance();
+    
+    /**
+     * @brief Logger'ı başlatır ve dosya açar (LLR6)
+     * @param filename Log dosya adı
+     * @param fmt LogFormatter stratejisi (JSON/XML/YAML)
+     * @return bool Başarılı ise true
+     */
+    bool initialize(const std::string& filename, LogFormatter* fmt);
+    
+    /**
+     * @brief Genel log mesajı yazar
+     * @param message Log mesajı
+     */
+    void log(const std::string& message);
+    
+    /**
+     * @brief İşlem loglar (LLR30)
+     * @param timestamp Zaman damgası
+     * @param action Yapılan işlem
+     * @param deviceId Hedef cihaz ID
+     */
+    void logAction(const std::string& timestamp, 
+                   const std::string& action, 
+                   int deviceId);
+    
+    /**
+     * @brief Log dosyasını kapatır (LLR7)
+     */
+    void close();
+    
+    /**
+     * @brief Logger başlatılmış mı kontrolü
+     * @return bool Başlatılmışsa true
+     */
+    bool isReady() const;
+    
+    /**
+     * @brief Destructor - kaynakları temizler
+     */
     ~Logger();
-
-    // Kopyalamayı engelle
-    Logger(const Logger&) = delete;
-    Logger& operator=(const Logger&) = delete;
-
-    // Yardımcı fonksiyonlar
-    std::string formatTime(std::time_t t) const;
-    std::string levelToString(LogLevel level) const;
-    std::string formatLogLine(LogLevel level,
-                              const std::string& message,
-                              int deviceId,
-                              const std::string& actionType) const;
-
-private:
-    std::ofstream m_file;
-    bool         m_isOpen{false};
-    LogFormat    m_format{LogFormat::JSON}; // Varsayılan log formatı
 };
 
 #endif // LOGGER_H
