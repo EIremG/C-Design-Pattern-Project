@@ -78,8 +78,8 @@ install(FILES ${HEADERS} DESTINATION include)
 
 # Test için custom target (opsiyonel)
 add_custom_target(run
-    COMMAND MSH_Logging
+    COMMAND $<TARGET_FILE:MSH_Logging>
     DEPENDS MSH_Logging
-    WORKING_DIRECTORY ${CMAKE_PROJECT_DIR}
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
     COMMENT "Running MSH Logging test program..."
 )
