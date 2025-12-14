@@ -1,0 +1,3 @@
+/Users/goktugherguner/Desktop/cpp v2/developer_d/build/CMakeFiles/main.dir
+/Users/goktugherguner/Desktop/cpp v2/developer_d/build/CMakeFiles/edit_cache.dir
+/Users/goktugherguner/Desktop/cpp v2/developer_d/build/CMakeFiles/rebuild_cache.dir

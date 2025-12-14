@@ -13,41 +13,44 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
+# Include directories
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
 # Source files
 set(SOURCES
-    Device.cpp
-    Event.cpp
-    MotionEvent.cpp
-    AlarmEvent.cpp
-    DeviceFailureEvent.cpp
-    EventQueue.cpp
-    EventObjectPool.cpp
-    EventDispatcher.cpp
-    Camera.cpp
-    CameraBuilder.cpp
-    SecuritySystem.cpp
-    DeviceManager.cpp
-    DebugSimulator.cpp
+    src/Device.cpp
+    src/Event.cpp
+    src/MotionEvent.cpp
+    src/AlarmEvent.cpp
+    src/DeviceFailureEvent.cpp
+    src/EventQueue.cpp
+    src/EventObjectPool.cpp
+    src/EventDispatcher.cpp
+    src/Camera.cpp
+    src/CameraBuilder.cpp
+    src/SecuritySystem.cpp
+    src/DeviceManager.cpp
+    src/DebugSimulator.cpp
     main.cpp
 )
 
 # Header files (for IDE support)
 set(HEADERS
-    Device.h
-    Event.h
-    MotionEvent.h
-    AlarmEvent.h
-    DeviceFailureEvent.h
-    EventQueue.h
-    EventObjectPool.h
-    EventDispatcher.h
-    EventObserver.h
-    EventType.h
-    Camera.h
-    CameraBuilder.h
-    SecuritySystem.h
-    DeviceManager.h
-    DebugSimulator.h
+    include/Device.h
+    include/Event.h
+    include/MotionEvent.h
+    include/AlarmEvent.h
+    include/DeviceFailureEvent.h
+    include/EventQueue.h
+    include/EventObjectPool.h
+    include/EventDispatcher.h
+    include/EventObserver.h
+    include/EventType.h
+    include/Camera.h
+    include/CameraBuilder.h
+    include/SecuritySystem.h
+    include/DeviceManager.h
+    include/DebugSimulator.h
 )
 
 # Create executable

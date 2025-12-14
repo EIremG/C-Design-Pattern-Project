@@ -1,5 +1,45 @@
 # Developer D - Camera + Motion System
 
+## Proje Yapısı
+
+```
+developer_d/
+├── include/              # Header dosyaları (.h)
+│   ├── EventType.h
+│   ├── Device.h
+│   ├── Event.h
+│   ├── MotionEvent.h
+│   ├── AlarmEvent.h
+│   ├── DeviceFailureEvent.h
+│   ├── EventObserver.h
+│   ├── EventQueue.h
+│   ├── EventObjectPool.h
+│   ├── EventDispatcher.h
+│   ├── Camera.h
+│   ├── CameraBuilder.h
+│   ├── SecuritySystem.h
+│   ├── DeviceManager.h
+│   └── DebugSimulator.h
+├── src/                  # Kaynak dosyaları (.cpp)
+│   ├── Device.cpp
+│   ├── Event.cpp
+│   ├── MotionEvent.cpp
+│   ├── AlarmEvent.cpp
+│   ├── DeviceFailureEvent.cpp
+│   ├── EventQueue.cpp
+│   ├── EventObjectPool.cpp
+│   ├── EventDispatcher.cpp
+│   ├── Camera.cpp
+│   ├── CameraBuilder.cpp
+│   ├── SecuritySystem.cpp
+│   ├── DeviceManager.cpp
+│   └── DebugSimulator.cpp
+├── build/                # Build çıktıları (oluşturulur)
+├── main.cpp             # Ana program
+├── CMakeLists.txt       # CMake yapılandırma
+└── README.md            # Bu dosya
+```
+
 ## Derleme ve Çalıştırma
 
 ### Gereksinimler
