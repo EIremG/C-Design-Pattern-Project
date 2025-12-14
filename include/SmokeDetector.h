@@ -1,29 +1,20 @@
-#include "Detector.h" // Also serves as SmokeDetector.h
+#pragma once
+#include "Detector.h"
 
 class SmokeDetector : public Detector {
 private:
-    float particleDensity; // Current reading (0-100)
+    float particleDensity;
 
 protected:
-    bool checkCondition() const override {
-        return particleDensity > threshold;
-    }
+    bool checkCondition() const override;
 
 public:
-    SmokeDetector(const std::string& name, float threshold, float range)
-        : Detector(name, DeviceType::SMOKE_DETECTOR, threshold, range), particleDensity(0.0f) {}
+    SmokeDetector(const std::string& name, float sensitivity = 0.7f, float threshold = 50.0f);
 
-    Device* clone() const override {
-        return new SmokeDetector(name, threshold, detectionRange);
-    }
+    bool powerOn() override;
+    std::string getStatus() const override;
+    Device* clone() const override;
 
-    void setParticleDensity(float density) {
-        particleDensity = density;
-        logger->log(LogLevel::DEBUG, getName() + " density updated to " + std::to_string(density) + ".");
-    }
-
-    std::string getStatus() const override {
-        return Device::getStatus() + " | Density: " + std::to_string(particleDensity) + 
-               " | Threshold: " + std::to_string(threshold);
-    }
+    void setParticleDensity(float density) { particleDensity = density; }
+    float getParticleDensity() const { return particleDensity; }
 };

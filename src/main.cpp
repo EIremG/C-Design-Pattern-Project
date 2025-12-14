@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 
-// Include headers - ensure these are correct for your file structure
-
-
+// DÜZELTME: ../include/ kullanmayın, sadece dosya adı yeterli
+#include "Light.h"
 #include "Camera.h"
 #include "TV.h"
 #include "MusicSystem.h"
@@ -11,50 +10,39 @@
 #include "SmokeDetector.h"
 #include "GasDetector.h"
 #include "Alarm.h"
-#include "Device.h" // Contains DeviceType enum
+#include "Device.h"
 #include "DeviceManager.h"
 #include "DeviceFactory.h"
 #include "CriticalDeviceGuard.h"
-#include "Logger.h" // Contains LogLevel enum
-
-// Function headers (assuming the enum classes are defined in their respective headers)
-// TVBrand is in TV.h
-// DeviceType is in Device.h
-// LogLevel is in Logger.h
+#include "Logger.h"
 
 void printHeader(const std::string& title) {
     std::cout << "\n╔════════════════════════════════════════╗" << std::endl;
-    std::cout << "  " << title << std::endl;
+    std::cout << "  " << title << std::endl;
     std::cout << "╚════════════════════════════════════════╝\n" << std::endl;
 }
 
 void testDeviceCreation() {
     printHeader("TEST 1: Device Creation & Factory (LLR9, LLR37)");
     
-    // LLR10 - Get DeviceManager singleton
     DeviceManager* manager = DeviceManager::getInstance();
     
-    // Create devices using factory (LLR9)
     Light* light1 = DeviceFactory::createLight("Living Room Light", "warm white", 70);
     Light* light2 = DeviceFactory::createLight("Bedroom Light", "blue", 50);
     
     Camera* camera1 = DeviceFactory::createCamera("Front Door Camera", true, 60, true);
     Camera* camera2 = DeviceFactory::createCamera("Backyard Camera", true, 30, false);
     
-    // Create TV devices - using integers (Factory will map 0->SAMSUNG, 1->LG)
     TV* tv1 = DeviceFactory::createTV("Living Room TV", 0); 
     TV* tv2 = DeviceFactory::createTV("Bedroom TV", 1); 
     
     MusicSystem* music = DeviceFactory::createMusicSystem("Home Theater");
     
-    // Create detectors - using integers (Factory will map 0->Smoke, 1->Gas)
     Detector* smokeDetector = DeviceFactory::createDetector(0, "Kitchen Smoke Detector", 0.8f, 60.0f);
     Detector* gasDetector = DeviceFactory::createDetector(1, "Basement Gas Detector", 0.9f, 100.0f);
     
-    // Get alarm singleton (LLR13)
     Alarm* alarm = DeviceFactory::getAlarmInstance();
     
-    // Add all devices to manager (LLR16)
     manager->addDevice(light1);
     manager->addDevice(light2);
     manager->addDevice(camera1);
@@ -67,8 +55,6 @@ void testDeviceCreation() {
     manager->addDevice(alarm);
     
     std::cout << "\n✅ All devices created and added to manager\n" << std::endl;
-    
-    // Verify ID auto-increment (LLR37)
     std::cout << "ID verification: Next ID would be " << Device::getNextID() << std::endl;
 }
 
@@ -84,13 +70,11 @@ void testDeviceOperations() {
     
     DeviceManager* manager = DeviceManager::getInstance();
     
-    // Get devices by ID (IDs are 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009)
     Device* light = manager->getDeviceById(1000);
     Device* camera = manager->getDeviceById(1002);
     Device* music = manager->getDeviceById(1006);
     Device* tv = manager->getDeviceById(1004);
     
-    // Test Light operations (LLR35)
     if (light) {
         std::cout << "\n--- Testing Light (LLR35) ---" << std::endl;
         light->powerOn();
@@ -102,7 +86,6 @@ void testDeviceOperations() {
         std::cout << light->getStatus() << std::endl;
     }
     
-    // Test Camera operations (LLR34)
     if (camera) {
         std::cout << "\n--- Testing Camera (LLR34) ---" << std::endl;
         camera->powerOn();
@@ -115,7 +98,6 @@ void testDeviceOperations() {
         std::cout << camera->getStatus() << std::endl;
     }
     
-    // Test TV operations (LLR33)
     if (tv) {
         std::cout << "\n--- Testing TV (LLR33) ---" << std::endl;
         tv->powerOn();
@@ -127,7 +109,6 @@ void testDeviceOperations() {
         std::cout << tv->getStatus() << std::endl;
     }
     
-    // Test Music System
     if (music) {
         std::cout << "\n--- Testing Music System ---" << std::endl;
         music->powerOn();
@@ -150,7 +131,6 @@ void testPrototypePattern() {
         std::cout << "\n📋 Original device:" << std::endl;
         std::cout << originalLight->getStatus() << std::endl;
         
-        // LLR15 - Cloning
         Device* clonedLight = originalLight->clone();
         std::cout << "\n📋 Cloned device:" << std::endl;
         std::cout << clonedLight->getStatus() << std::endl;
@@ -165,15 +145,13 @@ void testCriticalDeviceProtection() {
     
     DeviceManager* manager = DeviceManager::getInstance();
     
-    // Try to power off a smoke detector (should fail)
     Device* smokeDetector = manager->getDeviceById(1007);
     if (smokeDetector) {
         std::cout << "\n🔒 Attempting to power off critical device..." << std::endl;
-        // Check if power off is allowed using the Guard
         bool canPowerOff = CriticalDeviceGuard::canPowerOff(smokeDetector); 
         
         if (!canPowerOff) {
-            std::cout << "   Blocked by security guard!" << std::endl;
+            std::cout << "   Blocked by security guard!" << std::endl;
             
             std::cout << "\n🔑 Attempting admin override with wrong password..." << std::endl;
             CriticalDeviceGuard::requestAdminOverride(smokeDetector, "wrong");
@@ -182,21 +160,19 @@ void testCriticalDeviceProtection() {
             bool override2 = CriticalDeviceGuard::requestAdminOverride(smokeDetector, "admin123");
             
             if (override2) {
-                std::cout << "   Admin can now manually override if needed" << std::endl;
+                std::cout << "   Admin can now manually override if needed" << std::endl;
             }
         }
         
-        // Try to power off directly (should also fail due to virtual powerOff in Detector)
         std::cout << "\n🔒 Direct powerOff() call on critical device..." << std::endl;
         smokeDetector->powerOff();
     }
     
-    // Try to power off a regular device (should succeed)
     Device* light = manager->getDeviceById(1000);
     if (light) {
         std::cout << "\n💡 Attempting to power off regular device..." << std::endl;
         bool result = light->powerOff();
-        std::cout << "   Result: " << (result ? "SUCCESS" : "FAILED") << std::endl;
+        std::cout << "   Result: " << (result ? "SUCCESS" : "FAILED") << std::endl;
     }
 }
 
@@ -222,7 +198,6 @@ void testAlarmSingleton() {
     std::cout << "\n📊 Alarm status after silence:" << std::endl;
     std::cout << alarm1->getStatus() << std::endl;
     
-    // Test that alarm cannot be powered off
     std::cout << "\n🔒 Attempting to power off alarm..." << std::endl;
     alarm1->powerOff();
 }
@@ -238,11 +213,10 @@ void testDetectorFunctionality() {
     if (smoke) {
         std::cout << "🔍 Testing smoke detector..." << std::endl;
         smoke->setParticleDensity(30.0f);
-        smoke->detect(); // Should not detect
+        smoke->detect();
         
         smoke->setParticleDensity(80.0f);
-        // LLR12 - Template Method execution
-        bool detected = smoke->detect(); // Should detect and call notify
+        bool detected = smoke->detect();
         
         if (detected) {
             Alarm::getInstance()->trigger("Smoke detected by " + smoke->getName());
@@ -255,7 +229,7 @@ void testDetectorFunctionality() {
     if (gas) {
         std::cout << "\n🔍 Testing gas detector..." << std::endl;
         gas->setGasConcentration(50.0f);
-        gas->detect(); // Should not detect
+        gas->detect();
         
         gas->setGasConcentration(150.0f);
         bool detected = gas->detect();
@@ -273,12 +247,10 @@ void testDeviceRemoval() {
     
     DeviceManager* manager = DeviceManager::getInstance();
     
-    // Note: Light 1001 is a regular device
     std::cout << "🗑️ Attempting to remove regular device (ID: 1001)..." << std::endl;
     bool removed1 = manager->removeDevice(1001);
     std::cout << "Result: " << (removed1 ? "SUCCESS" : "FAILED") << std::endl;
     
-    // Note: Detector 1007 is a critical device
     std::cout << "\n🗑️ Attempting to remove critical device (ID: 1007)..." << std::endl;
     bool removed2 = manager->removeDevice(1007);
     std::cout << "Result: " << (removed2 ? "SUCCESS" : "FAILED") << std::endl;
@@ -301,18 +273,15 @@ void testIDAutoIncrement() {
     }
     
     std::cout << "\n📊 Checking ID sequence for all Light devices:" << std::endl;
-    // LLR32 - Use enum class for type checking
     manager->listDevicesByType(DeviceType::LIGHT);
 }
 
 void testLoggerIntegration() {
     printHeader("TEST 10: Logger Integration");
     
-    // Get Logger Singleton
     Logger* logger = Logger::getInstance();
     logger->enableFileLogging("device_system.log");
     
-    // LLR16 - Use enum class for log levels
     logger->log(LogLevel::INFO, "System started successfully");
     logger->log(LogLevel::WARNING, "High temperature detected in server room");
     logger->log(LogLevel::CRITICAL, "Critical device failure - immediate attention required");
@@ -323,10 +292,10 @@ void testLoggerIntegration() {
 
 int main() {
     std::cout << "\n╔══════════════════════════════════════════════════════╗" << std::endl;
-    std::cout << "║   SMART HOME DEVICE FRAMEWORK - INTEGRATION TEST    ║" << std::endl;
-    std::cout << "║              Developer B - Device Core               ║" << std::endl;
-    std::cout << "║  Testing LLRs: 9, 10, 11, 12, 13, 15, 16, 17,      ║" << std::endl;
-    std::cout << "║                32, 33, 34, 35, 37                    ║" << std::endl;
+    std::cout << "║   SMART HOME DEVICE FRAMEWORK - INTEGRATION TEST    ║" << std::endl;
+    std::cout << "║              Developer B - Device Core               ║" << std::endl;
+    std::cout << "║  Testing LLRs: 9, 10, 11, 12, 13, 15, 16, 17,      ║" << std::endl;
+    std::cout << "║                32, 33, 34, 35, 37                    ║" << std::endl;
     std::cout << "╚══════════════════════════════════════════════════════╝\n" << std::endl;
     
     try {
@@ -344,11 +313,11 @@ int main() {
         printHeader("🎉 ALL TESTS COMPLETED SUCCESSFULLY!");
         
         std::cout << "\n📋 SOLID Principles Applied:" << std::endl;
-        std::cout << "✅ S - Single Responsibility (Each class has one clear job)" << std::endl;
-        std::cout << "✅ O - Open/Closed (New Device types can be added without modifying DeviceManager/DeviceFactory)" << std::endl;
-        std::cout << "✅ L - Liskov Substitution (All concrete devices implement virtual Device methods)" << std::endl;
-        std::cout << "✅ I - Interface Segregation (Base Device interface is broad, concrete classes only use what they need)" << std::endl;
-        std::cout << "✅ D - Dependency Inversion (High-level DeviceManager depends on low-level Device abstraction)" << std::endl;
+        std::cout << "✅ S - Single Responsibility" << std::endl;
+        std::cout << "✅ O - Open/Closed" << std::endl;
+        std::cout << "✅ L - Liskov Substitution" << std::endl;
+        std::cout << "✅ I - Interface Segregation" << std::endl;
+        std::cout << "✅ D - Dependency Inversion" << std::endl;
         
         std::cout << "\n📊 LLR Requirements Coverage:" << std::endl;
         std::cout << "✅ LLR9-LLR37 - All requirements implemented" << std::endl;

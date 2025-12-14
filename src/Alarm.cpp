@@ -1,12 +1,11 @@
-#include "../include/Alarm.h"
+#include "Alarm.h"
 
-// Static member initialization
 Alarm* Alarm::instance = nullptr;
 
 Alarm::Alarm()
-    : Device("System Alarm", DeviceType::ALARM, true), // Critical device
+    : Device("System Alarm", DeviceType::ALARM, true),
       isAlarming(false), alarmReason("") {
-    powerState = true; // Alarm is always ON
+    powerState = true;
 }
 
 Alarm* Alarm::getInstance() {
@@ -23,13 +22,12 @@ bool Alarm::powerOn() {
 }
 
 bool Alarm::powerOff() {
-    // LLR17 - Critical device cannot be powered off
     std::cout << "[ERROR] Cannot power off Alarm - CRITICAL DEVICE!" << std::endl;
     return false;
 }
 
 std::string Alarm::getStatus() const {
-    std::string status = "Alarm (ID: " + std::to_string(id) + ")";
+    std::string status = "Alarm (ID: " + std::to_string(getId()) + ")";
     status += " - Status: " + std::string(isAlarming ? "🚨 ACTIVE" : "✅ SILENT");
     if (isAlarming) {
         status += " | Reason: " + alarmReason;
@@ -57,7 +55,6 @@ void Alarm::silence() {
 }
 
 Device* Alarm::clone() const {
-    // Cannot clone a singleton
     std::cout << "[ERROR] Cannot clone Alarm - Singleton pattern!" << std::endl;
     return nullptr;
 }

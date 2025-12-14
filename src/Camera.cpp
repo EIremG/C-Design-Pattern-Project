@@ -1,11 +1,10 @@
-#include "../include/Camera.h"
+#include "Camera.h"
 
 Camera::Camera(const std::string& name, bool motionDetection, int fps, bool nightVision)
-    : Device(name, DeviceType::CAMERA, false), // Not critical
+    : Device(name, DeviceType::CAMERA, false),
       motionDetection(motionDetection), fps(fps), nightVision(nightVision),
       isRecording(false) {
     
-    // Validation
     if (this->fps < 1) this->fps = 1;
     if (this->fps > 120) this->fps = 120;
 }
@@ -40,7 +39,7 @@ bool Camera::powerOff() {
 }
 
 std::string Camera::getStatus() const {
-    std::string status = "Camera [" + name + "] (ID: " + std::to_string(id) + ")";
+    std::string status = "Camera [" + name + "] (ID: " + std::to_string(getId()) + ")";
     status += " - Status: " + std::string(powerState ? "ON" : "OFF");
     status += " | FPS: " + std::to_string(fps);
     status += " | Motion: " + std::string(motionDetection ? "ON" : "OFF");
@@ -97,6 +96,5 @@ void Camera::setNightVision(bool enabled) {
 }
 
 Device* Camera::clone() const {
-    // LLR15 - Prototype pattern
     return new Camera(name + "_copy", motionDetection, fps, nightVision);
 }

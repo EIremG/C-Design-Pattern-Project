@@ -1,23 +1,19 @@
-#include "../include/DeviceFactory.h"
+#include "DeviceFactory.h"
 
-Light* DeviceFactory::createLight(const std::string& name, 
-                                  const std::string& color, 
-                                  int illumination) {
+Light* DeviceFactory::createLight(const std::string& name, const std::string& color, int illumination) {
     std::cout << "[FACTORY] Creating Light: " << name << std::endl;
     return new Light(name, color, illumination);
 }
 
-Camera* DeviceFactory::createCamera(const std::string& name, 
-                                   bool motionDetection, 
-                                   int fps, 
-                                   bool nightVision) {
+Camera* DeviceFactory::createCamera(const std::string& name, bool motionDetection, int fps, bool nightVision) {
     std::cout << "[FACTORY] Creating Camera: " << name << std::endl;
     return new Camera(name, motionDetection, fps, nightVision);
 }
 
-TV* DeviceFactory::createTV(const std::string& name, TVModel model) {
+TV* DeviceFactory::createTV(const std::string& name, int brandCode) {
     std::cout << "[FACTORY] Creating TV: " << name << std::endl;
-    return new TV(name, model);
+    TVBrand brand = (brandCode == 0) ? TVBrand::SAMSUNG : (brandCode == 1) ? TVBrand::LG : TVBrand::SONY;
+    return new TV(name, brand);
 }
 
 MusicSystem* DeviceFactory::createMusicSystem(const std::string& name) {
@@ -30,9 +26,7 @@ Alarm* DeviceFactory::getAlarmInstance() {
     return Alarm::getInstance();
 }
 
-Detector* DeviceFactory::createDetector(DetectorType type, 
-                                       const std::string& name,
-                                       float sensitivity, 
-                                       float threshold) {
-    return DetectorFactory::createDetector(type, name, sensitivity, threshold);
+Detector* DeviceFactory::createDetector(int typeCode, const std::string& name, float threshold, float range) {
+    DetectorType type = (typeCode == 0) ? DetectorType::SMOKE : DetectorType::GAS;
+    return DetectorFactory::createDetector(type, name, threshold, range);
 }

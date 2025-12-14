@@ -1,33 +1,22 @@
-#include "Device.h" // Also serves as MusicSystem.h
+#pragma once
+#include "Device.h"
 
 class MusicSystem : public Device {
 private:
     int volume;
-    std::string currentSong;
+    std::string currentTrack;
+    bool isPlaying;
 
 public:
-    MusicSystem(const std::string& name)
-        : Device(name, DeviceType::MUSIC_SYSTEM), volume(50), currentSong("None") {}
+    MusicSystem(const std::string& name);
 
-    Device* clone() const override {
-        return new MusicSystem(name);
-    }
+    bool powerOn() override;
+    bool powerOff() override;
+    std::string getStatus() const override;
+    Device* clone() const override;
 
-    void setVolume(int vol) {
-        if (vol >= 0 && vol <= 100) {
-            volume = vol;
-            logger->log(LogLevel::INFO, getName() + " volume set to " + std::to_string(volume) + ".");
-        }
-    }
-
-    void play(const std::string& songName) {
-        currentSong = songName;
-        logger->log(LogLevel::INFO, getName() + " now playing: " + currentSong + ".");
-    }
-
-    std::string getStatus() const override {
-        return Device::getStatus() + " | Volume: " + std::to_string(volume) + " | Song: " + currentSong;
-    }
-
-    bool isCritical() const override { return false; }
+    void play(const std::string& trackName);
+    void pause();
+    void stop();
+    void setVolume(int vol);
 };

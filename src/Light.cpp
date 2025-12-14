@@ -1,10 +1,9 @@
-#include "../include/Light.h"
+#include "Light.h"
 
 Light::Light(const std::string& name, const std::string& color, int illumination)
-    : Device(name, DeviceType::LIGHT, false), // Not critical
+    : Device(name, DeviceType::LIGHT, false),
       color(color), illumination(illumination) {
     
-    // Validation
     if (this->illumination < 0) this->illumination = 0;
     if (this->illumination > 100) this->illumination = 100;
 }
@@ -33,7 +32,7 @@ bool Light::powerOff() {
 }
 
 std::string Light::getStatus() const {
-    std::string status = "Light [" + name + "] (ID: " + std::to_string(id) + ")";
+    std::string status = "Light [" + name + "] (ID: " + std::to_string(getId()) + ")";
     status += " - Status: " + std::string(powerState ? "ON" : "OFF");
     status += " | Color: " + color;
     status += " | Illumination: " + std::to_string(illumination) + "%";
@@ -66,6 +65,5 @@ void Light::setIllumination(int level) {
 }
 
 Device* Light::clone() const {
-    // LLR15 - Prototype pattern
     return new Light(name + "_copy", color, illumination);
 }

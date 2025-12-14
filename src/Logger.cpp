@@ -1,6 +1,5 @@
-#include "../include/Logger.h"
+#include "Logger.h"
 
-// Static member initialization
 Logger* Logger::instance = nullptr;
 
 Logger::Logger() : fileLogging(false) {
@@ -16,16 +15,18 @@ Logger* Logger::getInstance() {
 std::string Logger::getCurrentTimestamp() {
     time_t now = time(0);
     char buffer[80];
-    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", localtime(&now));
+    struct tm* timeinfo = localtime(&now);
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeinfo);
     return std::string(buffer);
 }
 
 std::string Logger::logLevelToString(LogLevel level) {
     switch(level) {
+        case LogLevel::DEBUG:   return "DEBUG";
         case LogLevel::INFO:    return "INFO";
         case LogLevel::WARNING: return "WARNING";
-        case LogLevel::ERROR:   return "ERROR";
-        case LogLevel::DEBUG:   return "DEBUG";
+        case LogLevel::CRITICAL: return "CRITICAL";
+        // ERROR kaldırıldı çünkü CRITICAL ile aynı değerde (3)
         default:               return "UNKNOWN";
     }
 }
@@ -36,10 +37,8 @@ void Logger::log(LogLevel level, const std::string& message) {
     
     std::string logMessage = "[" + timestamp + "] [" + levelStr + "] " + message;
     
-    // Console output
     std::cout << logMessage << std::endl;
     
-    // File output if enabled
     if (fileLogging && logFile.is_open()) {
         logFile << logMessage << std::endl;
         logFile.flush();

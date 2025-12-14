@@ -1,6 +1,5 @@
-#include "../include/DeviceManager.h"
+#include "DeviceManager.h"
 
-// Static member initialization
 DeviceManager* DeviceManager::instance = nullptr;
 
 DeviceManager::DeviceManager() {
@@ -14,31 +13,20 @@ DeviceManager* DeviceManager::getInstance() {
     return instance;
 }
 
-bool DeviceManager::addDevice(Device* device) {
+void DeviceManager::addDevice(Device* device) {
     if (device == nullptr) {
         std::cout << "[MANAGER ERROR] Cannot add null device!" << std::endl;
-        return false;
-    }
-    
-    // Check for duplicate ID (LLR37)
-    for (Device* d : devices) {
-        if (d->getId() == device->getId()) {
-            std::cout << "[MANAGER ERROR] Device with ID " << device->getId() 
-                      << " already exists!" << std::endl;
-            return false;
-        }
+        return;
     }
     
     devices.push_back(device);
     std::cout << "[MANAGER] Device added: " << device->getName() 
               << " (ID: " << device->getId() << ")" << std::endl;
-    return true;
 }
 
 bool DeviceManager::removeDevice(int deviceId) {
     for (auto it = devices.begin(); it != devices.end(); ++it) {
         if ((*it)->getId() == deviceId) {
-            // Check if critical device (LLR17)
             if ((*it)->isCriticalDevice()) {
                 std::cout << "[MANAGER ERROR] Cannot remove critical device: " 
                           << (*it)->getName() << std::endl;
@@ -57,7 +45,7 @@ bool DeviceManager::removeDevice(int deviceId) {
     return false;
 }
 
-Device* DeviceManager::getDeviceById(int id) {
+Device* DeviceManager::getDeviceById(int id) const {
     for (Device* device : devices) {
         if (device->getId() == id) {
             return device;
@@ -72,7 +60,6 @@ void DeviceManager::listAllDevices() const {
         return;
     }
     
-    // LLR32 - Device list display format
     std::cout << "\n========================================" << std::endl;
     std::cout << "         DEVICE LIST (LLR32)" << std::endl;
     std::cout << "========================================" << std::endl;

@@ -1,7 +1,7 @@
-#include "../include/MusicSystem.h"
+#include "MusicSystem.h"
 
 MusicSystem::MusicSystem(const std::string& name)
-    : Device(name, DeviceType::MUSIC_SYSTEM, false), // Not critical
+    : Device(name, DeviceType::MUSIC_SYSTEM, false),
       volume(50), currentTrack("No track"), isPlaying(false) {
 }
 
@@ -31,7 +31,7 @@ bool MusicSystem::powerOff() {
 }
 
 std::string MusicSystem::getStatus() const {
-    std::string status = "MusicSystem [" + name + "] (ID: " + std::to_string(id) + ")";
+    std::string status = "MusicSystem [" + name + "] (ID: " + std::to_string(getId()) + ")";
     status += " - Status: " + std::string(powerState ? "ON" : "OFF");
     status += " | Volume: " + std::to_string(volume) + "%";
     status += " | Current: " + currentTrack;
@@ -83,7 +83,6 @@ void MusicSystem::setVolume(int vol) {
 }
 
 Device* MusicSystem::clone() const {
-    // LLR15 - Prototype pattern
     MusicSystem* copy = new MusicSystem(name + "_copy");
     copy->volume = this->volume;
     return copy;

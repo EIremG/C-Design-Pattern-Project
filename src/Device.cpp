@@ -1,16 +1,18 @@
-#include "../include/Device.h"
+#include "Device.h"
 
-// Static member initialization (LLR37)
 int Device::nextID = 1000;
 
-// Protected constructor (LLR9)
 Device::Device(const std::string& name, DeviceType type, bool critical)
     : name(name), deviceType(type), isCritical(critical), powerState(false) {
-    id = nextID++; // LLR37 - Auto-increment ID
-    std::cout << "[DEVICE CREATED] " << name << " (ID: " << id << ")" << std::endl;
+    id = nextID++;
+    logger = Logger::getInstance();
+    logger->log(LogLevel::INFO, "[DEVICE CREATED] " + name + " (ID: " + std::to_string(id) + ")");
 }
 
-// Helper function
+Device::~Device() {
+    logger->log(LogLevel::INFO, "[DEVICE DESTROYED] " + name);
+}
+
 std::string Device::deviceTypeToString(DeviceType type) {
     switch(type) {
         case DeviceType::LIGHT: return "Light";

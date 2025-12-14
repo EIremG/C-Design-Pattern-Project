@@ -1,7 +1,6 @@
-#include "../include/CriticalDeviceGuard.h"
+#include "CriticalDeviceGuard.h"
 #include <ctime>
 
-// Static member initialization
 const std::string CriticalDeviceGuard::ADMIN_PASSWORD = "admin123";
 
 bool CriticalDeviceGuard::canPowerOff(Device* device) {
@@ -40,11 +39,9 @@ bool CriticalDeviceGuard::requestAdminOverride(Device* device, const std::string
 }
 
 void CriticalDeviceGuard::logSecurityEvent(const std::string& event) {
-    // Get current timestamp
     time_t now = time(0);
     char* dt = ctime(&now);
     
-    // Remove newline from timestamp
     std::string timestamp(dt);
     timestamp = timestamp.substr(0, timestamp.length() - 1);
     

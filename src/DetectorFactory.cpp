@@ -1,4 +1,4 @@
-#include "../include/DetectorFactory.h"
+#include "DetectorFactory.h"
 
 Detector* DetectorFactory::createDetector(DetectorType type, const std::string& name, 
                                          float sensitivity, float threshold) {
