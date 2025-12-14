@@ -33,7 +33,7 @@ set(SOURCES
     src/AlarmNotification.cpp
     
     # Main test programı
-    src/main.cpp
+    main.cpp
 )
 
 # Header dosyaları (IDE'ler için)
