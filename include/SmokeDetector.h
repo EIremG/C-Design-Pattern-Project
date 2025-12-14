@@ -13,7 +13,7 @@ public:
     Device* clone() const override;
 
     // Detector's pure virtual function
-    bool detect() override;
+    bool detect() override;  // checkCondition değil, detect!
 
     void setParticleDensity(float density) { particleDensity = density; }
     float getParticleDensity() const { return particleDensity; }
