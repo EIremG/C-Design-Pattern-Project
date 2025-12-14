@@ -54,4 +54,4 @@ public:
     static Notification* createNotification(const std::string& type);
 };
 
-#endif // NOTIFICATIONFACTORY_H
+#endif 

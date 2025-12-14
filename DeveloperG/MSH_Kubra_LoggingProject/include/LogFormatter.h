@@ -10,9 +10,15 @@
 
 /**
  * @class LogFormatter
- * @brief Log formatlamak için abstract base class
+ * @brief Log formatlamak için abstract base class (Strategy Pattern)
  * 
  * LLR8: JSON/XML/YAML formatlarını destekler
+ * 
+ * Design Pattern: Strategy Pattern
+ * - Bu sınıf Strategy interface'i olarak çalışır
+ * - Her türev sınıf (JSON/XML/YAML) farklı bir concrete strategy'dir
+ * - Logger (Context) runtime'da strategy'yi değiştirebilir
+ * 
  * SOLID - Open/Closed Principle: Yeni format eklemek için 
  * mevcut kodu değiştirmeden yeni türev sınıf oluşturulur
  */
@@ -46,4 +52,4 @@ public:
     virtual std::string getFormatType() const = 0;
 };
 
-#endif // LOGFORMATTER_H
+#endif 

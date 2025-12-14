@@ -19,6 +19,11 @@ class LogFormatter;
  * LLR6: Sistem başlatıldığında log dosyası oluşturulur
  * LLR7: Kapanışta log dosyası düzgün kapatılır
  * LLR30: Her başarılı işlem loglanır (timestamp, işlem, device id)
+ * 
+ * Design Patterns:
+ * - Singleton Pattern: Tek bir Logger instance garantisi
+ * - Strategy Pattern: LogFormatter kullanarak format stratejisi seçimi
+ *   (JSON/XML/YAML formatları runtime'da değiştirilebilir)
  */
 class Logger {
 private:
@@ -86,4 +91,4 @@ public:
     ~Logger();
 };
 
-#endif // LOGGER_H
+#endif 

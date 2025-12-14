@@ -49,7 +49,7 @@ bool Logger::initialize(const std::string& filename, LogFormatter* fmt) {
     
     isInitialized = true;
     
-    // Başlangıç mesajı
+    // Prıjenin başlangıç mesajı
     std::string startMsg = "=== MSH Logging System Started ===\n";
     startMsg += "Format: " + formatter->getFormatType() + "\n";
     startMsg += "Timestamp: " + getCurrentTimestamp() + "\n";

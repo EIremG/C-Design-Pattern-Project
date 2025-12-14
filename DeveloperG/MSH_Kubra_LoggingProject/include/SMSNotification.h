@@ -56,4 +56,4 @@ public:
     virtual std::string getType() const;
 };
 
-#endif // SMSNOTIFICATION_H
+#endif 

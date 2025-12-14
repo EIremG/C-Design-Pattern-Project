@@ -10,19 +10,25 @@
 
 /**
  * @class Notification
- * @brief Bildirim göndermek için abstract base class
+ * @brief Bildirim göndermek için abstract base class (Strategy Pattern)
  * 
  * LLR19: Arıza algılandığında kullanıcıya seçilen bildirim 
  *        türüne göre mesaj yazılır (Console: "A SMS is sent")
  * LLR36: Kullanıcı bildirim tercihini uygulama başında seçebilir
- *        (Console/SMS/Alarm mesajı - simülasyon)
+ *        (Console/SMS/Email/Alarm mesajı - simülasyon)
+ * 
+ * Design Pattern: Strategy Pattern
+ * - Bu sınıf Strategy interface'i olarak çalışır
+ * - Her türev sınıf (Console/SMS/Email/Alarm) farklı bir concrete strategy'dir
+ * - NotificationManager (Context) runtime'da strategy'yi değiştirebilir
  * 
  * SOLID - Open/Closed Principle: Yeni bildirim türü eklemek için
  * mevcut kodu değiştirmeden yeni türev sınıf oluşturulur
  * 
- * Desteklenen bildirim türleri:
+ * Desteklenen bildirim strategy'leri:
  * - ConsoleNotification: Konsola yazdırma (gerçek)
  * - SMSNotification: SMS gönderme (simülasyon)
+ * - EmailNotification: Email gönderme (simülasyon)
  * - AlarmNotification: Alarm tetikleme (simülasyon)
  */
 class Notification {
@@ -50,4 +56,4 @@ public:
     virtual std::string getType() const = 0;
 };
 
-#endif // NOTIFICATION_H
+#endif 

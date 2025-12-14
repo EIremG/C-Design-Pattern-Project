@@ -48,4 +48,4 @@ public:
     static LogFormatter* createFormatter(const std::string& type);
 };
 
-#endif // LOGFORMATTERFACTORY_H
+#endif 

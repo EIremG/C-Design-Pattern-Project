@@ -68,4 +68,4 @@ private:
     std::string escapeXml(const std::string& str) const;
 };
 
-#endif // XMLLOGFORMATTER_H
+#endif 

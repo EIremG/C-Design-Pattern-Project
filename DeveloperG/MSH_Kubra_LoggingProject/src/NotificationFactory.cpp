@@ -1,11 +1,13 @@
 // NotificationFactory.cpp
 // Developer G - Kübra Akpınar
 // LLR19, LLR36: Factory Method Pattern - Notification üretimi
+// Pattern: Factory Method + Strategy Pattern birlikte
 
 #include "NotificationFactory.h"
 #include "ConsoleNotification.h"
 #include "SMSNotification.h"
 #include "AlarmNotification.h"
+#include "EmailNotification.h"
 #include <iostream>
 #include <algorithm>
 #include <cctype>
@@ -19,28 +21,35 @@ static std::string toLowerCase(const std::string& str) {
     return result;
 }
 
-// LLR19, LLR36: Bildirim tipine göre Notification oluşturur
+// LLR19, LLR36: Bildirim tipine göre Notification Strategy oluşturur
 Notification* NotificationFactory::createNotification(const std::string& type) {
     // Tip kontrolü için lowercase'e çevir
     std::string lowerType = toLowerCase(type);
     
-    // Console notification
+    // Console notification strategy
     if (lowerType == "console") {
-        std::cout << "[NotificationFactory] Creating Console notification" 
+        std::cout << "[NotificationFactory] Creating Console notification strategy" 
                   << std::endl;
         return new ConsoleNotification();
     }
     
-    // SMS notification (simülasyon)
+    // SMS notification strategy (simülasyon)
     if (lowerType == "sms") {
-        std::cout << "[NotificationFactory] Creating SMS notification (simulated)" 
+        std::cout << "[NotificationFactory] Creating SMS notification strategy (simulated)" 
                   << std::endl;
         return new SMSNotification();
     }
     
-    // Alarm notification (simülasyon)
+    // Email notification strategy (simülasyon)
+    if (lowerType == "email") {
+        std::cout << "[NotificationFactory] Creating Email notification strategy (simulated)" 
+                  << std::endl;
+        return new EmailNotification();
+    }
+    
+    // Alarm notification strategy (simülasyon)
     if (lowerType == "alarm") {
-        std::cout << "[NotificationFactory] Creating Alarm notification (simulated)" 
+        std::cout << "[NotificationFactory] Creating Alarm notification strategy (simulated)" 
                   << std::endl;
         return new AlarmNotification();
     }
@@ -48,7 +57,7 @@ Notification* NotificationFactory::createNotification(const std::string& type) {
     // Bilinmeyen tip
     std::cerr << "[NotificationFactory] ERROR: Unknown notification type: " 
               << type << std::endl;
-    std::cerr << "[NotificationFactory] Supported types: console, sms, alarm" 
+    std::cerr << "[NotificationFactory] Supported types: console, sms, email, alarm" 
               << std::endl;
     
     return NULL;

@@ -77,4 +77,4 @@ private:
     std::string intToString(int value) const;
 };
 
-#endif // YAMLLOGFORMATTER_H
+#endif 

@@ -64,4 +64,4 @@ private:
     std::string escapeJson(const std::string& str) const;
 };
 
-#endif // JSONLOGFORMATTER_H
+#endif 

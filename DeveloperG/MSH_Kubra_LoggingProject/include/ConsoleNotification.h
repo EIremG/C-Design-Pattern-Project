@@ -51,4 +51,4 @@ public:
     virtual std::string getType() const;
 };
 
-#endif // CONSOLENOTIFICATION_H
+#endif 

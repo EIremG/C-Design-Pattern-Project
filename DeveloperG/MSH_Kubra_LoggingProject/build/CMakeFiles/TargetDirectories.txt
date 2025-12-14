@@ -1,5 +1,0 @@
-C:/Users/kmfm2/OneDrive/Masaüstü/C-Design-Pattern-Project/DeveloperG/MSH_Kubra_LoggingProject/build/CMakeFiles/MSH_Logging.dir
-C:/Users/kmfm2/OneDrive/Masaüstü/C-Design-Pattern-Project/DeveloperG/MSH_Kubra_LoggingProject/build/CMakeFiles/run.dir
-C:/Users/kmfm2/OneDrive/Masaüstü/C-Design-Pattern-Project/DeveloperG/MSH_Kubra_LoggingProject/build/CMakeFiles/INSTALL.dir
-C:/Users/kmfm2/OneDrive/Masaüstü/C-Design-Pattern-Project/DeveloperG/MSH_Kubra_LoggingProject/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/kmfm2/OneDrive/Masaüstü/C-Design-Pattern-Project/DeveloperG/MSH_Kubra_LoggingProject/build/CMakeFiles/ZERO_CHECK.dir

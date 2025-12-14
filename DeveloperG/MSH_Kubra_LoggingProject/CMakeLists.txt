@@ -29,6 +29,7 @@ set(SOURCES
     src/NotificationFactory.cpp
     src/ConsoleNotification.cpp
     src/SMSNotification.cpp
+    src/EmailNotification.cpp
     src/AlarmNotification.cpp
     
     # Main test programı
@@ -48,6 +49,7 @@ set(HEADERS
     include/NotificationFactory.h
     include/ConsoleNotification.h
     include/SMSNotification.h
+    include/EmailNotification.h
     include/AlarmNotification.h
 )
 
