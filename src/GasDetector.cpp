@@ -24,8 +24,19 @@ std::string GasDetector::getStatus() const {
     return status;
 }
 
-bool GasDetector::checkCondition() const {
-    return gasConcentration > threshold * sensitivity;
+bool GasDetector::detect() {
+    if (!powerState) {
+        logger->log(LogLevel::WARNING, name + " is off and cannot detect");
+        return false;
+    }
+    
+    if (gasConcentration > threshold * sensitivity) {
+        logger->log(LogLevel::CRITICAL, "CRITICAL DETECTION: Gas threshold exceeded by " + name + "!");
+        return true;
+    }
+    
+    logger->log(LogLevel::DEBUG, name + " checked, condition normal");
+    return false;
 }
 
 Device* GasDetector::clone() const {
