@@ -975,7 +975,8 @@ CMakeFiles/AlarmTest.dir/Alarm.cpp.o: /Users/sencerozdemir/Desktop/MySweetHome_S
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
-  /Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/Alarm.h
+  /Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/Alarm.h \
+  /Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/Device.h
 
 CMakeFiles/AlarmTest.dir/main.cpp.o: /Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/main.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1963,7 +1964,10 @@ CMakeFiles/AlarmTest.dir/main.cpp.o: /Users/sencerozdemir/Desktop/MySweetHome_Se
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include/stdint.h \
-  /Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/Alarm.h
+  /Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/Alarm.h \
+  /Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/Detector.h \
+  /Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/DetectorFactory.h \
+  /Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/Device.h
 
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream:
@@ -2261,6 +2265,8 @@ CMakeFiles/AlarmTest.dir/main.cpp.o: /Users/sencerozdemir/Desktop/MySweetHome_Se
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/move.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/integer_sequence.h:
+
+/Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/Device.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/appleapiopts.h:
 
@@ -2916,6 +2922,8 @@ CMakeFiles/AlarmTest.dir/main.cpp.o: /Users/sencerozdemir/Desktop/MySweetHome_Se
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/data.h:
 
+/Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/DetectorFactory.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/for_each_segment.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/container_adaptor.h:
@@ -3237,6 +3245,8 @@ CMakeFiles/AlarmTest.dir/main.cpp.o: /Users/sencerozdemir/Desktop/MySweetHome_Se
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/unwrap_iter.h:
+
+/Users/sencerozdemir/Desktop/MySweetHome_Sencer_Module/Detector.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/math.h:
 
