@@ -49,28 +49,48 @@ developer_d/
 
 ### Adımlar
 
-1. **Build dizini oluştur ve derle:**
+1. **Proje dizinine gidin:**
+```bash
+cd developer_d
+```
+
+2. **Build dizini oluştur ve derle:**
 ```bash
 mkdir -p build && cd build && cmake .. && make
 ```
 
-2. **Programı çalıştır:**
+3. **Programı çalıştır:**
 ```bash
 ./main
 ```
 
 ### Tek Komutla (Build + Çalıştır)
 ```bash
-mkdir -p build && cd build && cmake .. && make && ./main
+cd developer_d && mkdir -p build && cd build && cmake .. && make && ./main
+```
+
+### Temiz Build (Önceki build'i silerek)
+```bash
+cd developer_d && rm -rf build && mkdir -p build && cd build && cmake .. && make && ./main
 ```
 
 ## Test Sonuçları
 
-Program çalıştırıldığında 6 test otomatik olarak çalışır. Başarılı çalıştırmada şu çıktı görülür:
+Program çalıştırıldığında 6 test otomatik olarak çalışır:
+
+1. **Test 1: Singleton Pattern** - EventQueue, EventObjectPool ve DeviceManager'ın tek instance olduğunu doğrular
+2. **Test 2: Builder Pattern** - CameraBuilder ile Camera oluşturma ve yapılandırma
+3. **Test 3: Object Pool Pattern** - Event nesnelerinin yeniden kullanımı
+4. **Test 4: Observer Pattern** - EventDispatcher ve SecuritySystem arasındaki gözlemci deseni
+5. **Test 5: Motion Detection (LLR25)** - Hareket algılama akışı: Camera → Event → Dispatcher → SecuritySystem
+6. **Test 6: Debug Simulator (LLR38)** - Simüle edilmiş hareket ve cihaz arızası testleri
+
+Başarılı çalıştırmada program sonunda şu mesaj görülür:
 
 ```
-Başarılı Testler: 6/6
->>> TÜM TESTLER BAŞARILI! ✓✓✓
+========================================
+All Tests Completed Successfully!
+========================================
 ```
 
 ## Tasarım Desenleri
