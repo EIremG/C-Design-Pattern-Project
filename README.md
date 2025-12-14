@@ -127,16 +127,6 @@ SmartHome/
 4. **Prototype Pattern**: Device::clone()
 5. **Observer Pattern**: Alarm (Subject) → Lights (Observers)
 
-### Observer Pattern Örneği
-```cpp
-// Alarm tetiklendiğinde, tüm kayıtlı ışıklar otomatik olarak bilgilendirilir
-Alarm* alarm = Alarm::getInstance();
-Light* light = new Light("Living Room");
-
-alarm->attach(light);  // Light'ı observer olarak kaydet
-alarm->trigger("Fire detected!");  // Tüm observer'lar bilgilendirilir
-// Light otomatik olarak kırmızıya döner ve tam parlaklıkta açılır
-```
 
 ## SOLID Prensipleri
 
