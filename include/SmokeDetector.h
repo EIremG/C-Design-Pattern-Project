@@ -1,22 +1,29 @@
-#pragma once
-#include "Detector.h"
+#include "Detector.h" // Also serves as SmokeDetector.h
 
-// Concrete Smoke Detector (LLR12)
 class SmokeDetector : public Detector {
 private:
-    float particleDensity;
-    
+    float particleDensity; // Current reading (0-100)
+
+protected:
+    bool checkCondition() const override {
+        return particleDensity > threshold;
+    }
+
 public:
-    SmokeDetector(const std::string& name, float sensitivity = 0.7f, float threshold = 50.0f);
-    
-    // Override methods (LLR11)
-    bool powerOn() override;
-    bool powerOff() override; // LLR17 - Cannot power off critical devices
-    std::string getStatus() const override;
-    bool detect() override;
-    Device* clone() const override; // LLR15
-    
-    // Specific methods
-    void setParticleDensity(float density) { particleDensity = density; }
-    float getParticleDensity() const { return particleDensity; }
+    SmokeDetector(const std::string& name, float threshold, float range)
+        : Detector(name, DeviceType::SMOKE_DETECTOR, threshold, range), particleDensity(0.0f) {}
+
+    Device* clone() const override {
+        return new SmokeDetector(name, threshold, detectionRange);
+    }
+
+    void setParticleDensity(float density) {
+        particleDensity = density;
+        logger->log(LogLevel::DEBUG, getName() + " density updated to " + std::to_string(density) + ".");
+    }
+
+    std::string getStatus() const override {
+        return Device::getStatus() + " | Density: " + std::to_string(particleDensity) + 
+               " | Threshold: " + std::to_string(threshold);
+    }
 };

@@ -503,7 +503,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files/Project"
+			"value" : "C:/Program Files/SmartHome_DeviceFramework"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -939,7 +939,7 @@
 				}
 			],
 			"type" : "BOOL",
-			"value" : "OFF"
+			"value" : "NO"
 		},
 		{
 			"name" : "CMAKE_SKIP_RPATH",
@@ -955,7 +955,7 @@
 				}
 			],
 			"type" : "BOOL",
-			"value" : "OFF"
+			"value" : "NO"
 		},
 		{
 			"name" : "CMAKE_STATIC_LINKER_FLAGS",
@@ -1051,43 +1051,7 @@
 				}
 			],
 			"type" : "BOOL",
-			"value" : "OFF"
-		},
-		{
-			"name" : "Project_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build"
-		},
-		{
-			"name" : "Project_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "Project_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome"
+			"value" : "FALSE"
 		},
 		{
 			"name" : "SmartHome_DeviceFramework_BINARY_DIR",

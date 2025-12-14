@@ -1,22 +1,35 @@
 #pragma once
-#include "Detector.h"
+#include "Detector.h" // Detector.h de Device.h'ı içerir
 
-// Concrete Gas Detector (LLR12)
 class GasDetector : public Detector {
 private:
-    float gasConcentration;
-    
+    float gasConcentration; // Current reading (0-100)
+
+protected:
+    bool checkCondition() const override {
+        return gasConcentration > threshold;
+    }
+
 public:
-    GasDetector(const std::string& name, float sensitivity = 0.8f, float threshold = 100.0f);
+    // 17. Satır: Burada temel sınıf kurucusunu çağırıyor.
+    GasDetector(const std::string& name, float threshold, float range)
+        // Device kurucusuna name'i iletiyor. name artık protected.
+        : Detector(name, DeviceType::GAS_DETECTOR, threshold, range), gasConcentration(0.0f) {}
+
+    Device* clone() const override {
+        // name değişkenine erişim burada da protected olduğu için sorunsuz
+        return new GasDetector(name, threshold, detectionRange);
+    }
+
+    void setGasConcentration(float concentration) {
+        gasConcentration = concentration;
+        logger->log(LogLevel::DEBUG, getName() + " concentration updated to " + std::to_string(concentration) + ".");
+    }
+
+    std::string getStatus() const override {
+        return Device::getStatus() + " | Concentration: " + std::to_string(gasConcentration) + 
+               " | Threshold: " + std::to_string(threshold);
+    }
     
-    // Override methods
-    bool powerOn() override;
-    bool powerOff() override; // LLR17
-    std::string getStatus() const override;
-    bool detect() override;
-    Device* clone() const override; // LLR15
-    
-    // Specific methods
-    void setGasConcentration(float concentration) { gasConcentration = concentration; }
-    float getGasConcentration() const { return gasConcentration; }
+    // isCritical() Detector.h'de tanımlandığı için burada tekrar tanımlamaya gerek yok
 };

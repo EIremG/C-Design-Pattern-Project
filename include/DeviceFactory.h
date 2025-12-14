@@ -1,63 +1,44 @@
-#include "../include/Alarm.h"
+#include "Light.h" // Also serves as DeviceFactory.h
+#include "Camera.h"
+#include "TV.h"
+#include "MusicSystem.h"
+#include "SmokeDetector.h"
+#include "GasDetector.h"
+#include "Alarm.h"
 
-// Static member initialization
-Alarm* Alarm::instance = nullptr;
-
-Alarm::Alarm()
-    : Device("System Alarm", DeviceType::ALARM, true), // Critical device
-      isAlarming(false), alarmReason("") {
-    powerState = true; // Alarm is always ON
-}
-
-Alarm* Alarm::getInstance() {
-    if (instance == nullptr) {
-        instance = new Alarm();
-        std::cout << "[SINGLETON] Alarm instance created" << std::endl;
+class DeviceFactory {
+public:
+    // LLR9 - Factory Methods
+    static Light* createLight(const std::string& name, const std::string& color = "white", int illumination = 50) {
+        return new Light(name, color, illumination);
     }
-    return instance;
-}
 
-bool Alarm::powerOn() {
-    std::cout << "[ALARM] Alarm is always ON (cannot be powered on/off)" << std::endl;
-    return true;
-}
-
-bool Alarm::powerOff() {
-    // LLR17 - Critical device cannot be powered off
-    std::cout << "[ERROR] Cannot power off Alarm - CRITICAL DEVICE!" << std::endl;
-    return false;
-}
-
-std::string Alarm::getStatus() const {
-    std::string status = "Alarm (ID: " + std::to_string(id) + ")";
-    status += " - Status: " + std::string(isAlarming ? "🚨 ACTIVE" : "✅ SILENT");
-    if (isAlarming) {
-        status += " | Reason: " + alarmReason;
+    static Camera* createCamera(const std::string& name, bool isRecording = false, int fps = 30, bool nightVision = false) {
+        return new Camera(name, isRecording, fps, nightVision);
     }
-    return status;
-}
 
-void Alarm::trigger(const std::string& reason) {
-    isAlarming = true;
-    alarmReason = reason;
-    std::cout << "\n🚨🚨🚨 ALARM TRIGGERED! 🚨🚨🚨" << std::endl;
-    std::cout << "Reason: " << reason << std::endl;
-    std::cout << "🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨\n" << std::endl;
-}
+    // Note: Parameter is an int in the test, mapping to TVBrand enum here
+    static TV* createTV(const std::string& name, int brandCode) {
+        TVBrand brand = (brandCode == 0) ? TVBrand::SAMSUNG : (brandCode == 1) ? TVBrand::LG : TVBrand::SONY;
+        return new TV(name, brand);
+    }
 
-void Alarm::silence() {
-    if (!isAlarming) {
-        std::cout << "[ALARM] No active alarm to silence" << std::endl;
-        return;
+    static MusicSystem* createMusicSystem(const std::string& name) {
+        return new MusicSystem(name);
+    }
+
+    // Note: First parameter is an int in the test, mapping to Detector type here
+    static Detector* createDetector(int typeCode, const std::string& name, float threshold, float range) {
+        if (typeCode == 0) {
+            return new SmokeDetector(name, threshold, range);
+        } else if (typeCode == 1) {
+            return new GasDetector(name, threshold, range);
+        }
+        return nullptr;
     }
     
-    std::cout << "[ALARM] Alarm silenced. Previous reason: " << alarmReason << std::endl;
-    isAlarming = false;
-    alarmReason = "";
-}
-
-Device* Alarm::clone() const {
-    // Cannot clone a singleton
-    std::cout << "[ERROR] Cannot clone Alarm - Singleton pattern!" << std::endl;
-    return nullptr;
-}
+    // LLR13 - Get Alarm Singleton
+    static Alarm* getAlarmInstance() {
+        return Alarm::getInstance();
+    }
+};

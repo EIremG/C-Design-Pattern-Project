@@ -5,7 +5,7 @@ events:
     kind: "message-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       The system is: Windows - 10.0.26100 - AMD64
   -
@@ -16,7 +16,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     mode: "file"
     variable: "src_in"
     description: "Path to a file."
@@ -96,7 +96,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler:  
@@ -106,7 +106,7 @@ events:
       The output was:
       0
       .NET Framework i├ºin MSBuild s├╝r├╝m 17.14.23+b0019275e
-      Olu┼ƒturma ba┼ƒlat─▒ld─▒: 12.12.2025 00:35:13.
+      Olu┼ƒturma ba┼ƒlat─▒ld─▒: 14.12.2025 01:20:40.
       
       1 d├╝─ƒ├╝m├╝nde "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\4.2.1\\CompilerIdC\\CompilerIdC.vcxproj" projesi (varsay─▒lan hedefler).
       PrepareForBuild:
@@ -135,7 +135,7 @@ events:
           0 Uyar─▒
           0 Hata
       
-      Ge├ºen S├╝re 00:00:01.59
+      Ge├ºen S├╝re 00:00:01.85
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -152,7 +152,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
     description: "Path to a program."
@@ -264,7 +264,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
     description: "Path to a program."
@@ -493,7 +493,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_LINKER"
     description: "Path to a program."
@@ -603,7 +603,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_MT"
     description: "Path to a program."
@@ -737,7 +737,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_AR"
     description: "Path to a program."
@@ -850,7 +850,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     mode: "file"
     variable: "src_in"
     description: "Path to a file."
@@ -930,7 +930,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler:  
@@ -940,7 +940,7 @@ events:
       The output was:
       0
       .NET Framework i├ºin MSBuild s├╝r├╝m 17.14.23+b0019275e
-      Olu┼ƒturma ba┼ƒlat─▒ld─▒: 12.12.2025 00:35:16.
+      Olu┼ƒturma ba┼ƒlat─▒ld─▒: 14.12.2025 01:20:42.
       
       1 d├╝─ƒ├╝m├╝nde "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\4.2.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" projesi (varsay─▒lan hedefler).
       PrepareForBuild:
@@ -969,7 +969,7 @@ events:
           0 Uyar─▒
           0 Hata
       
-      Ge├ºen S├╝re 00:00:00.96
+      Ge├ºen S├╝re 00:00:00.99
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -986,7 +986,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "_CMAKE_TOOL_WITH_PATH"
     description: "Path to a program."
@@ -1218,7 +1218,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC.cmake:553 (__windows_compiler_msvc_enable_rc)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC-C.cmake:5 (__windows_compiler_msvc)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCInformation.cmake:48 (include)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_RC_COMPILER"
     description: "RC compiler"
@@ -1282,9 +1282,9 @@ events:
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/CMake/sbin/"
       - "C:/Program Files/CMake/"
-      - "C:/Program Files/Project/bin/"
-      - "C:/Program Files/Project/sbin/"
-      - "C:/Program Files/Project/"
+      - "C:/Program Files/SmartHome_DeviceFramework/bin/"
+      - "C:/Program Files/SmartHome_DeviceFramework/sbin/"
+      - "C:/Program Files/SmartHome_DeviceFramework/"
     searched_directories:
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/rc.com"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/rc.exe"
@@ -1359,63 +1359,64 @@ events:
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files/Project"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/SmartHome_DeviceFramework"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/Program Files/CMake"
-        - "C:/Program Files/Project"
+        - "C:/Program Files/SmartHome_DeviceFramework"
   -
     kind: "try_compile-v1"
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-qp4xqj"
-      binary: "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-qp4xqj"
+      source: "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-yapzlr"
+      binary: "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-yapzlr"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/90505/OneDrive/Masaüstü/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-qp4xqj'
+        Change Dir: 'C:/Users/90505/OneDrive/Masaüstü/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-yapzlr'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_4409f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_bf388.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         .NET Framework i├ºin MSBuild s├╝r├╝m 17.14.23+b0019275e
-        Olu┼ƒturma ba┼ƒlat─▒ld─▒: 12.12.2025 00:35:19.
+        Olu┼ƒturma ba┼ƒlat─▒ld─▒: 14.12.2025 01:20:44.
         
-        1 d├╝─ƒ├╝m├╝nde "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qp4xqj\\cmTC_4409f.vcxproj" projesi (varsay─▒lan hedefler).
+        1 d├╝─ƒ├╝m├╝nde "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yapzlr\\cmTC_bf388.vcxproj" projesi (varsay─▒lan hedefler).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qp4xqj\\Debug\\" dizini olu┼ƒturuluyor.
-          "cmTC_4409f.dir\\Debug\\cmTC_4409f.tlog\\" dizini olu┼ƒturuluyor.
+          "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yapzlr\\Debug\\" dizini olu┼ƒturuluyor.
+          "cmTC_bf388.dir\\Debug\\cmTC_bf388.tlog\\" dizini olu┼ƒturuluyor.
         InitializeBuildStatus:
-          "AlwaysCreate" belirtildi─ƒi i├ºin "cmTC_4409f.dir\\Debug\\cmTC_4409f.tlog\\unsuccessfulbuild" olu┼ƒturuluyor.
-          "cmTC_4409f.dir\\Debug\\cmTC_4409f.tlog\\unsuccessfulbuild" ├╢─ƒesine eri┼ƒiliyor.
+          "AlwaysCreate" belirtildi─ƒi i├ºin "cmTC_bf388.dir\\Debug\\cmTC_bf388.tlog\\unsuccessfulbuild" olu┼ƒturuluyor.
+          "cmTC_bf388.dir\\Debug\\cmTC_bf388.tlog\\unsuccessfulbuild" ├╢─ƒesine eri┼ƒiliyor.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_4409f.dir\\Debug\\\\" /Fd"cmTC_4409f.dir\\Debug\\vc143.pdb" /external:W3 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_bf388.dir\\Debug\\\\" /Fd"cmTC_bf388.dir\\Debug\\vc143.pdb" /external:W3 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35217 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_4409f.dir\\Debug\\\\" /Fd"cmTC_4409f.dir\\Debug\\vc143.pdb" /external:W3 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_bf388.dir\\Debug\\\\" /Fd"cmTC_bf388.dir\\Debug\\vc143.pdb" /external:W3 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qp4xqj\\Debug\\cmTC_4409f.exe" /INCREMENTAL /ILK:"cmTC_4409f.dir\\Debug\\cmTC_4409f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/90505/OneDrive/Masa├╝st├╝/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-qp4xqj/Debug/cmTC_4409f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/90505/OneDrive/Masa├╝st├╝/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-qp4xqj/Debug/cmTC_4409f.lib" /MACHINE:X64  /machine:x64 cmTC_4409f.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_4409f.vcxproj -> C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qp4xqj\\Debug\\cmTC_4409f.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yapzlr\\Debug\\cmTC_bf388.exe" /INCREMENTAL /ILK:"cmTC_bf388.dir\\Debug\\cmTC_bf388.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/90505/OneDrive/Masa├╝st├╝/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-yapzlr/Debug/cmTC_bf388.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/90505/OneDrive/Masa├╝st├╝/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-yapzlr/Debug/cmTC_bf388.lib" /MACHINE:X64  /machine:x64 cmTC_bf388.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_bf388.vcxproj -> C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yapzlr\\Debug\\cmTC_bf388.exe
         FinalizeBuildStatus:
-          "cmTC_4409f.dir\\Debug\\cmTC_4409f.tlog\\unsuccessfulbuild" dosyas─▒ siliniyor.
-          "cmTC_4409f.dir\\Debug\\cmTC_4409f.tlog\\cmTC_4409f.lastbuildstate" ├╢─ƒesine eri┼ƒiliyor.
-        "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qp4xqj\\cmTC_4409f.vcxproj" Projesini Olu┼ƒturma ─░┼ƒlemi Tamamland─▒ (varsay─▒lan hedefler).
+          "cmTC_bf388.dir\\Debug\\cmTC_bf388.tlog\\unsuccessfulbuild" dosyas─▒ siliniyor.
+          "cmTC_bf388.dir\\Debug\\cmTC_bf388.tlog\\cmTC_bf388.lastbuildstate" ├╢─ƒesine eri┼ƒiliyor.
+        "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yapzlr\\cmTC_bf388.vcxproj" Projesini Olu┼ƒturma ─░┼ƒlemi Tamamland─▒ (varsay─▒lan hedefler).
         
         Olu┼ƒturma ba┼ƒar─▒l─▒ oldu.
             0 Uyar─▒
             0 Hata
         
-        Ge├ºen S├╝re 00:00:00.85
+        Ge├ºen S├╝re 00:00:00.58
         
       exitCode: 0
   -
@@ -1423,7 +1424,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -1441,7 +1442,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
       Microsoft (R) Incremental Linker Version 14.44.35217.0
@@ -1451,53 +1452,54 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-jfb08t"
-      binary: "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-jfb08t"
+      source: "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-njxem5"
+      binary: "C:/Users/90505/OneDrive/Masa\u00fcst\u00fc/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-njxem5"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
     buildResult:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/90505/OneDrive/Masaüstü/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-jfb08t'
+        Change Dir: 'C:/Users/90505/OneDrive/Masaüstü/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-njxem5'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_334ce.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_34642.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         .NET Framework i├ºin MSBuild s├╝r├╝m 17.14.23+b0019275e
-        Olu┼ƒturma ba┼ƒlat─▒ld─▒: 12.12.2025 00:35:21.
+        Olu┼ƒturma ba┼ƒlat─▒ld─▒: 14.12.2025 01:20:45.
         
-        1 d├╝─ƒ├╝m├╝nde "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jfb08t\\cmTC_334ce.vcxproj" projesi (varsay─▒lan hedefler).
+        1 d├╝─ƒ├╝m├╝nde "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-njxem5\\cmTC_34642.vcxproj" projesi (varsay─▒lan hedefler).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jfb08t\\Debug\\" dizini olu┼ƒturuluyor.
-          "cmTC_334ce.dir\\Debug\\cmTC_334ce.tlog\\" dizini olu┼ƒturuluyor.
+          "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-njxem5\\Debug\\" dizini olu┼ƒturuluyor.
+          "cmTC_34642.dir\\Debug\\cmTC_34642.tlog\\" dizini olu┼ƒturuluyor.
         InitializeBuildStatus:
-          "AlwaysCreate" belirtildi─ƒi i├ºin "cmTC_334ce.dir\\Debug\\cmTC_334ce.tlog\\unsuccessfulbuild" olu┼ƒturuluyor.
-          "cmTC_334ce.dir\\Debug\\cmTC_334ce.tlog\\unsuccessfulbuild" ├╢─ƒesine eri┼ƒiliyor.
+          "AlwaysCreate" belirtildi─ƒi i├ºin "cmTC_34642.dir\\Debug\\cmTC_34642.tlog\\unsuccessfulbuild" olu┼ƒturuluyor.
+          "cmTC_34642.dir\\Debug\\cmTC_34642.tlog\\unsuccessfulbuild" ├╢─ƒesine eri┼ƒiliyor.
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_334ce.dir\\Debug\\\\" /Fd"cmTC_334ce.dir\\Debug\\vc143.pdb" /external:W3 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_34642.dir\\Debug\\\\" /Fd"cmTC_34642.dir\\Debug\\vc143.pdb" /external:W3 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35217 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_334ce.dir\\Debug\\\\" /Fd"cmTC_334ce.dir\\Debug\\vc143.pdb" /external:W3 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_34642.dir\\Debug\\\\" /Fd"cmTC_34642.dir\\Debug\\vc143.pdb" /external:W3 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jfb08t\\Debug\\cmTC_334ce.exe" /INCREMENTAL /ILK:"cmTC_334ce.dir\\Debug\\cmTC_334ce.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/90505/OneDrive/Masa├╝st├╝/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-jfb08t/Debug/cmTC_334ce.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/90505/OneDrive/Masa├╝st├╝/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-jfb08t/Debug/cmTC_334ce.lib" /MACHINE:X64  /machine:x64 cmTC_334ce.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_334ce.vcxproj -> C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jfb08t\\Debug\\cmTC_334ce.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-njxem5\\Debug\\cmTC_34642.exe" /INCREMENTAL /ILK:"cmTC_34642.dir\\Debug\\cmTC_34642.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/90505/OneDrive/Masa├╝st├╝/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-njxem5/Debug/cmTC_34642.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/90505/OneDrive/Masa├╝st├╝/SmartHome/build/CMakeFiles/CMakeScratch/TryCompile-njxem5/Debug/cmTC_34642.lib" /MACHINE:X64  /machine:x64 cmTC_34642.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_34642.vcxproj -> C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-njxem5\\Debug\\cmTC_34642.exe
         FinalizeBuildStatus:
-          "cmTC_334ce.dir\\Debug\\cmTC_334ce.tlog\\unsuccessfulbuild" dosyas─▒ siliniyor.
-          "cmTC_334ce.dir\\Debug\\cmTC_334ce.tlog\\cmTC_334ce.lastbuildstate" ├╢─ƒesine eri┼ƒiliyor.
-        "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jfb08t\\cmTC_334ce.vcxproj" Projesini Olu┼ƒturma ─░┼ƒlemi Tamamland─▒ (varsay─▒lan hedefler).
+          "cmTC_34642.dir\\Debug\\cmTC_34642.tlog\\unsuccessfulbuild" dosyas─▒ siliniyor.
+          "cmTC_34642.dir\\Debug\\cmTC_34642.tlog\\cmTC_34642.lastbuildstate" ├╢─ƒesine eri┼ƒiliyor.
+        "C:\\Users\\90505\\OneDrive\\Masa├╝st├╝\\SmartHome\\build\\CMakeFiles\\CMakeScratch\\TryCompile-njxem5\\cmTC_34642.vcxproj" Projesini Olu┼ƒturma ─░┼ƒlemi Tamamland─▒ (varsay─▒lan hedefler).
         
         Olu┼ƒturma ba┼ƒar─▒l─▒ oldu.
             0 Uyar─▒
             0 Hata
         
-        Ge├ºen S├╝re 00:00:00.75
+        Ge├ºen S├╝re 00:00:00.55
         
       exitCode: 0
   -
@@ -1505,7 +1507,7 @@ events:
     backtrace:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
@@ -1523,7 +1525,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
       - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
       Microsoft (R) Incremental Linker Version 14.44.35217.0
