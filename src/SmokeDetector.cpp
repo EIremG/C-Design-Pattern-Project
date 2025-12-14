@@ -24,8 +24,19 @@ std::string SmokeDetector::getStatus() const {
     return status;
 }
 
-bool SmokeDetector::checkCondition() const {
-    return particleDensity > threshold * sensitivity;
+bool SmokeDetector::detect() {
+    if (!powerState) {
+        logger->log(LogLevel::WARNING, name + " is off and cannot detect");
+        return false;
+    }
+    
+    if (particleDensity > threshold * sensitivity) {
+        logger->log(LogLevel::CRITICAL, "CRITICAL DETECTION: Smoke threshold exceeded by " + name + "!");
+        return true;
+    }
+    
+    logger->log(LogLevel::DEBUG, name + " checked, condition normal");
+    return false;
 }
 
 Device* SmokeDetector::clone() const {
