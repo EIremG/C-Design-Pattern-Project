@@ -6,18 +6,19 @@ protected:
     float sensitivity;
     float threshold;
 
-    virtual bool checkCondition() const = 0;
-    virtual void notify() const;
-
 public:
     Detector(const std::string& name, DeviceType type, float sensitivity, float threshold);
 
-    bool detect();
+    // Virtual methods for subclasses
+    virtual bool detect() = 0;  // Her detector kendi detect metodunu implement eder
+    
     bool powerOff() override;
 
+    // Setter methods
     void setSensitivity(float sens);
     void setThreshold(float thresh);
     
+    // Getter methods
     float getSensitivity() const { return sensitivity; }
     float getThreshold() const { return threshold; }
 };
