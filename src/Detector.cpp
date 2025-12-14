@@ -26,26 +26,7 @@ void Detector::setThreshold(float thresh) {
     }
 }
 
-bool Detector::detect() {
-    if (!powerState) {
-        logger->log(LogLevel::WARNING, name + " is off and cannot detect");
-        return false;
-    }
-
-    if (checkCondition()) {
-        notify();
-        return true;
-    }
-    
-    logger->log(LogLevel::DEBUG, name + " checked, condition normal");
-    return false;
-}
-
 bool Detector::powerOff() {
     logger->log(LogLevel::CRITICAL, "SECURITY ALERT: Attempt to power off the Detector (" + name + ") was blocked");
     return false;
-}
-
-void Detector::notify() const {
-    logger->log(LogLevel::CRITICAL, "CRITICAL DETECTION: Threshold exceeded by " + name + "!");
 }
