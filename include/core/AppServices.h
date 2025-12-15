@@ -3,10 +3,9 @@
 
 #include "core/IAppServices.h"
 
-// Selin modülü (include/ içinde duruyorsa bu şekilde)
+// Selin modülü header'ları (sende include/mode altında olduğu için böyle)
 #include "mode/ModeManager.h"
 #include "mode/MockDeviceManager.h"
-#include "mode/Mode.h"
 
 class AppServices : public IAppServices {
 public:
@@ -16,11 +15,16 @@ public:
     void addDeviceFlow();
     void removeDeviceFlow();
     void changeModeFlow();
-    void previousState();
+    void previousState();      // <-- burası dolacak
     void simulateScenario();
 
     void requestStopEventLoop();
     void flushAndCloseLogs();
+
+private:
+    // Selin modülü state'ini KORUMAK için member tutuyoruz
+    MockDeviceManager m_dm;
+    ModeManager m_mm;
 };
 
 #endif

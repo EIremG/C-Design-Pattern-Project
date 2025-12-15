@@ -12,6 +12,8 @@ set(CORE_SOURCES
     src/core/MenuController.cpp
     src/core/SignalFlag.cpp
     src/core/AppServices.cpp
+    src/core/Console.cpp
+
 )
 
 set(MODE_SOURCES
@@ -29,7 +31,7 @@ add_executable(msh
     ${CORE_SOURCES}
     ${MODE_SOURCES}
     ${TEST_SOURCES}
-)
+ "include/core/Console.h" "src/core/Console.cpp")
 
 if(MSVC)
   target_compile_options(msh PRIVATE /EHsc)

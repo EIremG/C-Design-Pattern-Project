@@ -3,6 +3,7 @@
 #include "core/MenuController.h"
 #include "core/Input.h"
 #include "core/SignalFlag.h"
+#include "core/Console.h"
 
 #include <iostream>
 
@@ -20,6 +21,7 @@ int App::run() {
 
     bool running = true;
     while (running && !SignalFlag::shouldStop()) {
+        Console::clear();
         m_menu.showMainMenu();
 
         int choice = Input::readIntInRange("Select (1-7): ", 1, 7);
