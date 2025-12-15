@@ -1,8 +1,8 @@
 #include "core/App.h"
 #include "core/MenuController.h"
-#include "core/IAppServices.h"
-#include "tests/TestRunner.h"
+#include "core/AppServices.h"
 #include <string>
+#include "../tests/TestRunner.h"
 
 int main(int argc, char** argv) {
     if (argc >= 2) {
@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     }
 
     MenuController menu;
-    NullAppServices services;
+    AppServices services;
 
     App app(services, menu);
     return app.run();

@@ -1,5 +1,5 @@
-﻿#include "tests/TestRunner.h"
-#include "tests/TinyTest.h"
+﻿#include "TestRunner.h"
+#include "TinyTest.h"
 #include "core/Input.h"
 
 int runAllTests() {
