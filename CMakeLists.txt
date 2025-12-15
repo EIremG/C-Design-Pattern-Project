@@ -38,6 +38,12 @@ set(SIM_SOURCES
     src/sim/SecuritySystem.cpp
 
 )
+
+set(ALARM_SOURCES
+    src/alarm/Alarm.cpp
+    src/alarm/AlarmDemo.cpp
+)
+
 set(TEST_SOURCES
     tests/TestRunner.cpp
 )
@@ -47,7 +53,9 @@ add_executable(msh
     ${CORE_SOURCES}
     ${MODE_SOURCES}
     ${SIM_SOURCES}
-    ${TEST_SOURCES})
+    ${TEST_SOURCES} 
+    ${ALARM_SOURCES}
+)
 
 if(MSVC)
   target_compile_options(msh PRIVATE /EHsc)

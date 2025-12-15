@@ -6,6 +6,7 @@
 
 // ModeMenu.cpp içinde tanımlı fonksiyon:
 void runModeMenu(ModeManager& modeManager, MockDeviceManager& deviceManager);
+void runAlarmDemoScenario();
 
 AppServices::AppServices()
     : m_dm(), m_mm(m_dm)   // ModeManager device manager ref istiyor
@@ -31,27 +32,25 @@ void AppServices::previousState()
 
 void AppServices::simulateScenario()
 {
-    Console::clear();
     std::cout << "\n[Sim] Creating demo events...\n";
 
     DebugSimulator sim;
-
-    // 3 event enqueue
     sim.simulateMotion(1);
     sim.simulateAlarm(1);
     sim.simulateDeviceFailure(1);
 
     std::cout << "\n[Sim] Processing queued events...\n";
-
     EventQueue* q = &EventQueue::getInstance();
+    q->processNext();
+    q->processNext();
+    q->processNext();
 
-    // Şu an kaç event bastığımızı bildiğimiz için 3 kez işleyelim:
-    q->processNext();
-    q->processNext();
-    q->processNext();
+    // Dev E (Alarm/Detector) demo
+    runAlarmDemoScenario();
 
     std::cout << "\n[Sim] Done.\n";
 }
+
 
 
 void AppServices::requestStopEventLoop() { /* TODO */ }
