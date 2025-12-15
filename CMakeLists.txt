@@ -39,6 +39,13 @@ set(SIM_SOURCES
 
 )
 
+set(UI_SOURCES
+    src/ui/Input.cpp
+    src/ui/HelpPages.cpp
+    src/ui/DeviceUI.cpp
+    src/core/Console.cpp
+)
+
 set(LOG_SOURCES
     src/log/AlarmNotification.cpp
     src/log/ConsoleNotification.cpp
@@ -69,6 +76,7 @@ add_executable(msh
     ${SIM_SOURCES}
     ${TEST_SOURCES} 
     ${ALARM_SOURCES}
+    ${UI_SOURCES}
     ${LOG_SOURCES}
 )
 

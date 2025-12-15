@@ -1,12 +1,22 @@
-#include "core/Console.h"
-#include <cstdlib>
+﻿#include "core/Console.h"
+#include <iostream>
 
-namespace Console {
-    void clear() {
 #ifdef _WIN32
-        std::system("cls");
+#include <cstdlib>
 #else
-        std::system("clear");
+#include <cstdlib>
 #endif
-    }
+
+void Console::clear() {
+#ifdef _WIN32
+    std::system("cls");
+#else
+    std::system("clear");
+#endif
+}
+
+void Console::pause() {
+    std::cout << "\n(Devam etmek i�in ENTER)\n";
+    std::cin.ignore(1000000, '\n');
+    std::cin.get();
 }

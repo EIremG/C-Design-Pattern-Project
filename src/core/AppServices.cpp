@@ -1,13 +1,19 @@
 ﻿#include "core/AppServices.h"
 #include "core/Console.h"
+
 #include "sim/DebugSimulator.h"
 #include "sim/EventQueue.h"
-#include <iostream>
+
+
+#include "ui/DeviceUI.h"
+#include "ui/HelpPages.h"
+#include "ui/Input.h"
 
 #include "log/Logger.h"
 #include "log/LogFormatterFactory.h"
 #include "log/NotificationManager.h"
 
+#include <iostream>
 
 // ModeMenu.cpp içinde tanımlı fonksiyon:
 void runModeMenu(ModeManager& modeManager, MockDeviceManager& deviceManager);
@@ -22,9 +28,57 @@ AppServices::AppServices()
 }
 
 
-void AppServices::showDevices() { std::cout << "[TODO] showDevices\n"; }
-void AppServices::addDeviceFlow() { std::cout << "[TODO] addDeviceFlow\n"; }
-void AppServices::removeDeviceFlow() { std::cout << "[TODO] removeDeviceFlow\n"; }
+void AppServices::showDevices()
+{
+    Logger::getInstance()->log("[UI] showDevices selected");
+    std::cout << "\n--- DEVICES ---\n";
+
+    // Dev B gelene kadar placeholder
+    std::cout << "[INFO] Device list will be provided by DevB(DeviceManager).\n";
+    std::cout << "Example:\n";
+    std::cout << " - (id=1) Light  status=ON  color=white  illum=70\n";
+    std::cout << " - (id=2) TV     status=OFF model=Samsung\n διαφο\n";
+
+    // İstersen burada DevC’nin LLR32 formatına benzer çıktıyı basarız.
+}
+
+void AppServices::addDeviceFlow()
+{
+    Logger::getInstance()->log("[UI] addDeviceFlow selected");
+
+    DeviceAddRequest req = DeviceUI::promptAddRequest();
+
+    Logger::getInstance()->log("[UI] addDeviceFlow request captured");
+
+    std::cout << "\n[ADD] Request captured.\n";
+    std::cout << "Type=" << (int)req.type << ", Name=" << req.name << "\n";
+
+    if (req.cloneFromExisting) {
+        std::cout << "Clone from device id=" << req.cloneSourceId << "\n";
+    }
+
+    if (req.type == UI_LIGHT) {
+        std::cout << "Light color=" << req.lightColor
+            << ", illum=" << req.lightIllumination << "\n";
+    }
+    else if (req.type == UI_TV) {
+        std::cout << "TV model=" << req.tvModel << "\n";
+    }
+
+    std::cout << "\n[INFO] Actual creation will be done by DevB(DeviceFactory/DeviceManager) and DevC(Light/TV).\n";
+}
+
+void AppServices::removeDeviceFlow()
+{
+    Logger::getInstance()->log("[UI] removeDeviceFlow selected");
+
+    int id = DeviceUI::promptRemoveId();
+
+    std::cout << "\n[REMOVE] Device id captured: " << id << "\n";
+    std::cout << "[INFO] Actual removal will be done by DevB(DeviceManager::removeDevice).\n";
+
+    Logger::getInstance()->log("[UI] removeDeviceFlow id captured");
+}
 
 void AppServices::changeModeFlow()
 {
