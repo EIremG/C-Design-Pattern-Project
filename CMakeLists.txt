@@ -7,6 +7,9 @@ set(SOURCES
     main.cpp
     Alarm.cpp
     Alarm.h
+    Device.h
+    Detector.h
+    DetectorFactory.h
 )
 
 add_executable(AlarmTest ${SOURCES})
