@@ -1,10 +1,11 @@
 ﻿cmake_minimum_required(VERSION 3.10)
 project(MySweetHome CXX)
 
-set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
+
 
 set(CORE_SOURCES
     src/core/App.cpp
@@ -40,10 +41,9 @@ set(SIM_SOURCES
 )
 
 set(UI_SOURCES
-    src/ui/Input.cpp
+    
     src/ui/HelpPages.cpp
     src/ui/DeviceUI.cpp
-    src/core/Console.cpp
 )
 
 set(LOG_SOURCES
@@ -65,12 +65,32 @@ set(ALARM_SOURCES
     src/alarm/AlarmDemo.cpp
 )
 
+set(DEVICES_SOURCES
+    src/devices/HomeDevice.cpp
+    src/devices/DeviceFactory.cpp
+    src/devices/HomeDeviceManager.cpp
+    src/devices/CriticalDeviceGuard.cpp
+
+    src/devices/LightDevice.cpp
+    src/devices/TVDevice.cpp
+    src/devices/CameraDevice.cpp
+    src/devices/MusicSystemDevice.cpp
+
+    src/devices/DetectorDevice.cpp
+    src/devices/SmokeDetectorDevice.cpp
+    src/devices/GasDetectorDevice.cpp
+    src/devices/AlarmDevice.cpp
+
+    src/devices/DetectorFactory.cpp
+)
+
 set(TEST_SOURCES
     tests/TestRunner.cpp
 )
 
 add_executable(msh
     src/main.cpp
+    ${DEVICES_SOURCES}
     ${CORE_SOURCES}
     ${MODE_SOURCES}
     ${SIM_SOURCES}

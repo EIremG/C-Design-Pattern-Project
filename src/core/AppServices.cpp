@@ -7,7 +7,10 @@
 
 #include "ui/DeviceUI.h"
 #include "ui/HelpPages.h"
-#include "ui/Input.h"
+
+#include "devices/HomeDeviceManager.h"
+#include "devices/DeviceFactory.h"
+#include "ui/DeviceUI.h"
 
 #include "log/Logger.h"
 #include "log/LogFormatterFactory.h"
@@ -30,54 +33,93 @@ AppServices::AppServices()
 
 void AppServices::showDevices()
 {
-    Logger::getInstance()->log("[UI] showDevices selected");
+    Logger::getInstance()->log("[UI] showDevices");
+
     std::cout << "\n--- DEVICES ---\n";
-
-    // Dev B gelene kadar placeholder
-    std::cout << "[INFO] Device list will be provided by DevB(DeviceManager).\n";
-    std::cout << "Example:\n";
-    std::cout << " - (id=1) Light  status=ON  color=white  illum=70\n";
-    std::cout << " - (id=2) TV     status=OFF model=Samsung\n διαφο\n";
-
-    // İstersen burada DevC’nin LLR32 formatına benzer çıktıyı basarız.
+    HomeDeviceManager::getInstance()->listAllDevices();
 }
 
 void AppServices::addDeviceFlow()
 {
-    Logger::getInstance()->log("[UI] addDeviceFlow selected");
+    Logger::getInstance()->log("[UI] addDeviceFlow");
 
     DeviceAddRequest req = DeviceUI::promptAddRequest();
 
-    Logger::getInstance()->log("[UI] addDeviceFlow request captured");
+    HomeDeviceManager* mgr = HomeDeviceManager::getInstance();
 
-    std::cout << "\n[ADD] Request captured.\n";
-    std::cout << "Type=" << (int)req.type << ", Name=" << req.name << "\n";
-
+    // 1) Clone ile ekleme
     if (req.cloneFromExisting) {
-        std::cout << "Clone from device id=" << req.cloneSourceId << "\n";
+        HomeDevice* src = mgr->getDeviceById(req.cloneSourceId);
+        if (!src) {
+            std::cout << "[ERROR] Source device not found.\n";
+            return;
+        }
+        HomeDevice* copy = src->clone();
+        mgr->addDevice(copy);
+        std::cout << "[OK] Device cloned and added. New id=" << copy->getId() << "\n";
+        Logger::getInstance()->log("[UI] addDeviceFlow cloned");
+        return;
     }
 
-    if (req.type == UI_LIGHT) {
-        std::cout << "Light color=" << req.lightColor
-            << ", illum=" << req.lightIllumination << "\n";
-    }
-    else if (req.type == UI_TV) {
-        std::cout << "TV model=" << req.tvModel << "\n";
+    // 2) Normal create ile ekleme
+    HomeDevice* created = 0;
+
+    switch (req.type)
+    {
+    case UI_LIGHT:
+        created = DeviceFactory::createLight(req.name, req.lightColor, req.lightIllumination);
+        break;
+
+    case UI_TV:
+        // req.tvModel: 1=Samsung, 2=LG (senin UI’dan)
+        created = DeviceFactory::createTV(req.name, req.tvModel);
+        break;
+
+    case UI_CAMERA:
+        created = DeviceFactory::createCamera(req.name, false, 30, false);
+        break;
+
+    case UI_SMOKE_DETECTOR:
+        // typeCode için: çoğu implementasyonda 0=smoke, 1=gas olur.
+        // Eğer sizde farklıysa DetectorFactory.cpp’den bakıp bu iki sayıyı değiştiririz.
+        created = DeviceFactory::createDetector(0, req.name, 70.0f, 10.0f);
+        break;
+
+    case UI_GAS_DETECTOR:
+        created = DeviceFactory::createDetector(1, req.name, 70.0f, 10.0f);
+        break;
+
+    default:
+        std::cout << "[ERROR] Unknown device type.\n";
+        return;
     }
 
-    std::cout << "\n[INFO] Actual creation will be done by DevB(DeviceFactory/DeviceManager) and DevC(Light/TV).\n";
+    if (!created) {
+        std::cout << "[ERROR] DeviceFactory returned null.\n";
+        return;
+    }
+
+    mgr->addDevice(created);
+    std::cout << "[OK] Device added. id=" << created->getId() << "\n";
+    Logger::getInstance()->log("[UI] addDeviceFlow OK");
 }
+
 
 void AppServices::removeDeviceFlow()
 {
-    Logger::getInstance()->log("[UI] removeDeviceFlow selected");
+    Logger::getInstance()->log("[UI] removeDeviceFlow");
 
     int id = DeviceUI::promptRemoveId();
 
-    std::cout << "\n[REMOVE] Device id captured: " << id << "\n";
-    std::cout << "[INFO] Actual removal will be done by DevB(DeviceManager::removeDevice).\n";
-
-    Logger::getInstance()->log("[UI] removeDeviceFlow id captured");
+    bool ok = HomeDeviceManager::getInstance()->removeDevice(id);
+    if (ok) {
+        std::cout << "[OK] Device removed.\n";
+        Logger::getInstance()->log("[UI] removeDeviceFlow OK");
+    }
+    else {
+        std::cout << "[WARN] Device not found.\n";
+        Logger::getInstance()->log("[UI] removeDeviceFlow NOT_FOUND");
+    }
 }
 
 void AppServices::changeModeFlow()
