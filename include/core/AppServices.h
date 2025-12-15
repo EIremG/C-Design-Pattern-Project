@@ -5,6 +5,10 @@
 
 #include "sim/DebugSimulator.h"
 
+#include "log/Logger.h"
+#include "log/LogFormatterFactory.h"
+#include "log/NotificationManager.h"
+
 #include "mode/ModeManager.h"
 #include "mode/MockDeviceManager.h"
 

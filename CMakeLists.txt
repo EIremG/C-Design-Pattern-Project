@@ -39,6 +39,20 @@ set(SIM_SOURCES
 
 )
 
+set(LOG_SOURCES
+    src/log/AlarmNotification.cpp
+    src/log/ConsoleNotification.cpp
+    src/log/EmailNotification.cpp
+    src/log/JSONLogFormatter.cpp
+    src/log/LogFormatterFactory.cpp
+    src/log/Logger.cpp
+    src/log/NotificationFactory.cpp
+    src/log/NotificationManager.cpp
+    src/log/SMSNotification.cpp
+    src/log/XMLLogFormatter.cpp
+    src/log/YAMLLogFormatter.cpp
+)
+
 set(ALARM_SOURCES
     src/alarm/Alarm.cpp
     src/alarm/AlarmDemo.cpp
@@ -55,6 +69,7 @@ add_executable(msh
     ${SIM_SOURCES}
     ${TEST_SOURCES} 
     ${ALARM_SOURCES}
+    ${LOG_SOURCES}
 )
 
 if(MSVC)
