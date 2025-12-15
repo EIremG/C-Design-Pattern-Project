@@ -1,5 +1,6 @@
 ﻿#include "TestRunner.h"
 #include "TinyTest.h"
+#include "DeviceTests.h"
 #include "core/Input.h"
 
 int runAllTests() {
@@ -10,8 +11,8 @@ int runAllTests() {
     t.expectTrue(!Input::parseInt("12abc", v), "parseInt rejects trailing chars");
     t.expectTrue(!Input::parseInt("x", v), "parseInt rejects non-number");
 
-    // Şimdilik bu kadar. Entegrasyonda her device sınıfı gelince
-    // “2–3 test / device” ekleyeceğiz. :contentReference[oaicite:3]{index=3}
+    // Dev B tests
+    runDeviceTests(t);
 
     return t.report();
 }

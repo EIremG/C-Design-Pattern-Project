@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
-
+include_directories(${CMAKE_SOURCE_DIR}/tests)
 
 set(CORE_SOURCES
     src/core/App.cpp
@@ -86,6 +86,7 @@ set(DEVICES_SOURCES
 
 set(TEST_SOURCES
     tests/TestRunner.cpp
+    tests/DeviceTests.cpp
 )
 
 add_executable(msh
