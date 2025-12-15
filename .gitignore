@@ -1,0 +1,15 @@
+# Build outputs
+build/
+out/
+
+# Visual Studio
+.vs/
+*.sln
+*.vcxproj*
+*.user
+
+
+# Executables
+*.exe
+*.dll
+*.pdb
