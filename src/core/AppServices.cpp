@@ -1,4 +1,7 @@
 ﻿#include "core/AppServices.h"
+#include "core/Console.h"
+#include "sim/DebugSimulator.h"
+#include "sim/EventQueue.h"
 #include <iostream>
 
 // ModeMenu.cpp içinde tanımlı fonksiyon:
@@ -12,11 +15,9 @@ AppServices::AppServices()
 void AppServices::showDevices() { std::cout << "[TODO] showDevices\n"; }
 void AppServices::addDeviceFlow() { std::cout << "[TODO] addDeviceFlow\n"; }
 void AppServices::removeDeviceFlow() { std::cout << "[TODO] removeDeviceFlow\n"; }
-void AppServices::simulateScenario() { std::cout << "[TODO] simulateScenario\n"; }
 
 void AppServices::changeModeFlow()
 {
-    // Selin'in alt menüsü açılır; m_mm geçmiş state’leri tutmaya devam eder
     runModeMenu(m_mm, m_dm);
 }
 
@@ -25,9 +26,33 @@ void AppServices::previousState()
     if (!m_mm.previousState())
         std::cout << "No previous state!\n";
 
-    // Selin demo'daki gibi durum bas
     m_dm.printStatus();
 }
+
+void AppServices::simulateScenario()
+{
+    Console::clear();
+    std::cout << "\n[Sim] Creating demo events...\n";
+
+    DebugSimulator sim;
+
+    // 3 event enqueue
+    sim.simulateMotion(1);
+    sim.simulateAlarm(1);
+    sim.simulateDeviceFailure(1);
+
+    std::cout << "\n[Sim] Processing queued events...\n";
+
+    EventQueue* q = &EventQueue::getInstance();
+
+    // Şu an kaç event bastığımızı bildiğimiz için 3 kez işleyelim:
+    q->processNext();
+    q->processNext();
+    q->processNext();
+
+    std::cout << "\n[Sim] Done.\n";
+}
+
 
 void AppServices::requestStopEventLoop() { /* TODO */ }
 void AppServices::flushAndCloseLogs() { /* TODO */ }

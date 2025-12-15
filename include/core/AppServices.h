@@ -3,7 +3,8 @@
 
 #include "core/IAppServices.h"
 
-// Selin modülü header'ları (sende include/mode altında olduğu için böyle)
+#include "sim/DebugSimulator.h"
+
 #include "mode/ModeManager.h"
 #include "mode/MockDeviceManager.h"
 

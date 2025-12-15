@@ -22,6 +22,22 @@ set(MODE_SOURCES
     src/mode/ModeMenu.cpp
 )
 
+set(SIM_SOURCES
+    src/sim/AlarmEvent.cpp
+    src/sim/Camera.cpp
+    src/sim/CameraBuilder.cpp
+    src/sim/DebugSimulator.cpp
+    src/sim/Device.cpp
+    src/sim/DeviceFailureEvent.cpp
+    src/sim/DeviceManager.cpp
+    src/sim/Event.cpp
+    src/sim/EventDispatcher.cpp
+    src/sim/EventObjectPool.cpp
+    src/sim/EventQueue.cpp
+    src/sim/MotionEvent.cpp
+    src/sim/SecuritySystem.cpp
+
+)
 set(TEST_SOURCES
     tests/TestRunner.cpp
 )
@@ -30,8 +46,8 @@ add_executable(msh
     src/main.cpp
     ${CORE_SOURCES}
     ${MODE_SOURCES}
-    ${TEST_SOURCES}
- "include/core/Console.h" "src/core/Console.cpp")
+    ${SIM_SOURCES}
+    ${TEST_SOURCES})
 
 if(MSVC)
   target_compile_options(msh PRIVATE /EHsc)
